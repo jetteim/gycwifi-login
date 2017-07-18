@@ -1,0 +1,18 @@
+<main class="app flex-container">
+
+    <section class="flex-item">
+      <div class="text-center">
+        <img src="{{ style.logo }}">
+      </div>
+    </section>
+
+    <section class="flex-item" ui-view></section>
+
+    <section class="copyright-block flex-item">
+      <p class="text-center">
+        {{'access-by.provider' | translate}}
+        <a class="provider-link" href="https://gycwifi.com">{{'access-by.url' | translate}}</a>
+      </p>
+    </section>
+
+</main>

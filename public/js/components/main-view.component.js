@@ -1,0 +1,61 @@
+app.component('mainView', {
+  bindings: {},
+  templateUrl: "templates/main-view.html",
+  controller: function($scope, $http, profileService, $element, $state, reportService, $stateParams, apiService, langService, $rootScope) {
+    // в index.jade ng-init = "session = '#{session}'", а в index.js в методе контроллера sessionCtrl отдали сессию в $rootScope.session
+    $scope.lang = 'ru';
+    $scope.session = $rootScope.session
+    config.apiUrl = $scope.session.apiUrl ? $scope.session.apiUrl : config.apiUrl
+    config.halUrl = $scope.session.halUrl ? $scope.session.halUrl : config.halUrl
+
+    function setAppTemplate(template) {
+      if (!template) return;
+      $rootScope.template = template;
+      $scope.templatePath = '/templates/' + template + '/main-view.html';
+    }
+
+    try {
+      var defaultTemplate = 'default';
+
+      $scope.allowedRequest = 'get'
+
+      apiService.hal_availability_check()
+        .then(function(data) {
+          apiService.api_availability_check().then(function(data) {
+            $scope.allowedRequest = data ? 'post' : 'get'
+          })
+        })
+
+      apiService.getSessionStyle($scope.session, $scope.allowedRequest)
+        .then(function(styles) {
+          $scope.style = styles;
+
+          if (styles && styles.background) {
+            $element.css(
+              'background-image',
+              'linear-gradient(rgba(37, 40, 47, .6), rgba(37, 40, 47, 0.8)), url(' +
+              styles.background + ')'
+            )
+          }
+          setAppTemplate(styles.template || defaultTemplate)
+        })
+        .catch(function(e) {
+          setAppTemplate(styles.template || defaultTemplate)
+          reportService.send(JSON.stringify(e));
+        });
+
+      $scope.changeLang = function(lang) {
+        langService.setLang(lang);
+        $scope.lang = lang;
+      };
+      var next_step = $scope.session ? $scope.session.next_step || 'phone' : 'phone'
+      $state.go('main.' + next_step, {
+        session: $scope.session
+      });
+    } catch (error) {
+      reportService.send(error);
+    }
+
+  }
+
+});

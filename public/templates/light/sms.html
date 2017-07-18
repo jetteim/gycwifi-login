@@ -1,0 +1,20 @@
+<form class="js-validation-login" ng-submit="$ctrl.send()">
+  <div>
+    <div>
+      <div>
+        <input ng-model="$ctrl.form.sms_code" type="tel" id="sms_code" name="sms_code" placeholder="_ _ _ _">
+        <label for="sms_code">
+          {{ "sms-page.enter-sms-code" | translate }}
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <button type="submit">
+        {{ "sms-page.send" | translate }}
+      </button>
+    </div>
+  </div>
+</form>

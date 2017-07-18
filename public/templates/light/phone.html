@@ -1,0 +1,27 @@
+<form class="js-validation-login" ng-submit="$ctrl.send()">
+
+  <div>
+    <div>
+      {{ 'phone-page.law' | translate }}
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <label for="phone_number">
+        {{ "phone-page.enter-phone-number" | translate }}
+        <!-- Укажите свой номер телефона, чтобы авторизоваться другим способом: -->
+      </label>
+    </div>
+    <div>
+      <input class="input_phone-number" ng-model="session.phone_number" type="tel" id="phone_number" name="phone_number" placeholder="+X XXX XXX XX XX">
+    </div>
+  </div>
+
+  <div class="flex flex_column">
+    <button type="submit" class="btn btn_provider btn_on-internet">
+      {{ "phone-page.send" | translate }}
+    </button>
+  </div>
+
+</form>

@@ -1,0 +1,31 @@
+<div class="form-group" ng-repeat="(question_id, question) in $ctrl.poll.questions">
+    <div class="row"><label class="col-xs-12">{{ question.title }}</label></div>
+    <div class="row poll_answer" ng-repeat="(answer_id, answer) in question.answers">
+        <div class="col-xs-6">
+            <div class="answer-option">
+                <label ng-if="question.question_type === 'radio'" class="css-input css-radio css-radio-primary css-radio-sm">
+                    <input class="form-control input-sm" ng-if="question.question_type === 'radio'" type="radio" name="{{ question.title }}" ng-model="question.answer.id" ng-value="answer.id"/>
+                    <span></span>
+                    {{ answer.title }}
+                </label>
+                <label ng-if="question.question_type === 'checkbox'" class="css-input css-checkbox css-checkbox-primary css-checkbox-sm">
+                    <input class="form-control input-sm" ng-if="question.question_type === 'checkbox'" type="checkbox" name="{{ answer.title }}" ng-model="question.answers[answer_id].selected"/>
+                    <span></span>
+                    {{ answer.title }}
+                </label>
+                <label ng-if="question.question_type === 'switch'" class="css-input switch switch-primary switch-sm">
+                    <input class="form-control input-sm" ng-if="question.question_type === 'switch'" type="checkbox" name="{{ answer.title }}" ng-model="question.answers[answer_id].selected"/>
+                    <span></span>
+                    {{ answer.title }}
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="custom-answer">
+                <input class="form-control input-sm" ng-if="question.question_type === 'radio' && answer.custom" type="text" name="{{ answer.title + '_custom'}}" ng-model="question.answer.custom_answer" ng-show="question.answer.id == answer.id" />
+                <input class="form-control input-sm" ng-if="question.question_type === 'checkbox' && answer.custom" type="text" name="{{ answer.title + '_custom' }}" ng-model="question.answers[answer_id].custom_answer" ng-show="answer.selected" />
+                <input class="form-control input-sm" ng-if="question.question_type === 'switch' && answer.custom" type="text" name="{{ answer.title + '_custom' }}" ng-model="question.answers[answer_id].custom_answer" ng-show="answer.selected" />
+            </div>
+        </div>
+    </div>
+</div>

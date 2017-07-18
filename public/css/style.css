@@ -1,0 +1,107 @@
+.main-content-wrap {
+    background-color: #f5f5f5;
+}
+
+.fa-caret-down_sidebar-lang {
+    margin-right: 4px;
+}
+
+.lang-flag {
+    width: 20px;
+}
+
+.lang-flag_small-drop {
+    vertical-align: super;
+}
+
+.gyc-logo {
+    display: inline-block;
+}
+
+.gyc-logo_sm {
+    width: 20px;
+    height: 23px;
+    margin-top: -11px;
+}
+.dropdown-menu.dropdown-menu_sidebar{
+    min-width: 110px;
+}
+
+.app-content-wrap {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+button.router-settings {
+    margin-bottom: 0 !important;
+}
+
+.item-circle {
+  overflow: hidden;
+}
+
+.client-avatar {
+  width: 100%
+}
+
+basicstats > div {
+    min-height: 138px;
+}
+
+.panel-heading {
+    cursor: pointer;
+}
+
+.text-nowrap {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.showSweetAlert {
+    margin-left: 0;
+    top: 40%;
+    left: calc(50% - 239px);
+    background-color: rgba(37, 40, 47, .9);
+}
+.sweet-alert h2 {
+    color: rgb(255,255,255);
+}
+
+.sweet-alert p {
+    color: rgb(220,220,220);
+}
+
+.main-view {
+    display: block;
+    width: 100%;
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-image: linear-gradient(rgba(37, 40, 47, .6), rgba(37, 40, 47, 0.8)), url(/images/dashboard_auth_background.jpg);
+    background-position-x: center;
+    background-size: cover;
+}
+
+.form-login_color,
+.form-login_color:focus,
+.form-login_color:active {
+    color: #fff;
+}
+
+.css-radio input + span,
+.css-checkbox input + span {
+    background-color: transparent;
+}
+
+.css-checkbox input + span:after {
+    color: transparent;
+}
+
+.css-checkbox-primary input:checked + span:after {
+    color: white;
+}
+
+.poll_answer {
+    padding-left: 14px;
+}

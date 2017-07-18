@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a, a:visited, a:focus, a:active {
+    color: #263238;
+}
+
+input {
+    padding: 2px 4px;
+    outline: none;
+    font-weight: 700;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #263238;
+}
+
+.app {
+    display: block;
+    background-color: #90A4AE;
+    min-height: 100vh;
+    min-width: 320px;
+    box-sizing: border-box;
+    padding: 10px 10px;
+    color: #263238;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.section_width {
+    max-width: 300px;
+}
+
+.content-width {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-item {
+    align-self: center;
+}
+
+.flex-item:last-child {
+    margin-top: auto;
+}
+
+.page-title {
+    text-align: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.providers-buttons {
+    width: 300px;
+    box-sizing: border-box;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    outline: none;
+    margin: 5px;
+    padding: 10px 20px;
+    background: #eee;
+    font-size: 16px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #263238;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #fff;
+}
+
+.btn_block {
+    display: block;
+}
+
+.btn_provider {
+    background: #B0BEC5;
+}
+
+.btn_provider:hover {
+    background: #CFD8DC;
+}
+
+.question-title {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.answer-option {
+    margin: 10px 10px;
+}
+
+.internet-title {
+    font-size: 28px;
+    margin: 20px 0;
+}
+
+.btn_on-internet {
+    margin: 20px 0;
+}
+
+.provider-link {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.provider-link:hover {
+    color: #37474F;
+}
+
+.phone-form {
+    width: 300px;
+}
+
+.input_phone-number {
+    border: none;
+    margin-top: 10px;
+    background-color: #ECEFF1;
+}
