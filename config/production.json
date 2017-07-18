@@ -1,6 +1,0 @@
-{
-  "port": "3000",
-  "apiUrl": "https://api.gycwifi.com",
-  "halUrl": "https://hal.gycwifi.com",
-  "loginUrl": "http://login.gycwifi.com"
-}
