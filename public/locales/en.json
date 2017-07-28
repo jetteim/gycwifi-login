@@ -1,48 +1,43 @@
 {
+  "access-by": {
+    "provider": "Internet access by ",
+    "url": "www.gycwifi.com"
+  },
+  "internet-page": {
+    "login": "Enter the Internet"
+  },
   "login-page": {
-    "title": "Login",
-    "recover-password": "Forgot password?",
     "email": "Email",
-    "username": "Username",
-    "password": "Password",
-    "sign-in-button": "Sign in",
-    "sms-auth": "SMS Auth",
-    "without": "Login without social network",
-    "voucher": "Login by voucher",
-    "twitter-button": "Log in with Twitter",
-    "vk-button": "Log in with VK",
-    "instagram-button": "Log in with Instagram",
+    "enter-password": "Enter access code",
     "facebook-button": "Log in with Facebook",
     "google-button": "Log in with Google",
-    "or-sign-up": "Or registration",
+    "instagram-button": "Log in with Instagram",
     "or-sign-in": "Or sign in",
-    "enter-password": "Enter access code",
-    "send": "Send"
+    "or-sign-up": "Or registration",
+    "password": "Password",
+    "recover-password": "Forgot password?",
+    "send": "Send",
+    "sign-in-button": "Sign in",
+    "sms-auth": "SMS Auth",
+    "title": "Login",
+    "twitter-button": "Log in with Twitter",
+    "username": "Username",
+    "vk-button": "Log in with VK",
+    "voucher": "Login by voucher",
+    "without": "Login without social network"
   },
   "phone-page": {
-    "send-sms": "Send sms to +79037676877",
-    "law": "We need you to confirm your identity in accordance with the law",
     "enter-phone-number": "Please enter your phone number",
-    "send": "Proceed"
+    "law": "We need you to confirm your identity in accordance with the law",
+    "send": "Proceed",
   },
   "phone-pending": {
     "authorize-by-call1": "Please make call from your phone {{phoneNumber}} to number ",
     "authorize-by-call2": "+7(916)930-63-59",
     "authorize-by-call3": ". The call will be dropped and there will be no charge, even if you are in roaming",
-    "enter-sms-code": "Or enter code received by sms",
     "check-client-number": "Proceed",
-    "not-my-number": "Change number",
-    "make-a-call": "Make a call"
-  },
-  "sms-page": {
-    "enter-code": "Enter code from sms",
-    "send": "Send"
-  },
-  "internet-page": {
-    "login": "Enter the Internet"
-  },
-  "access-by": {
-    "provider": "Internet access by ",
-    "url": "www.gycwifi.com"
+    "enter-sms-code": "Or enter code received by sms",
+    "make-a-call": "Make a call",
+    "not-my-number": "Change number"
   }
 }

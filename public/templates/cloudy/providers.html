@@ -1,37 +1,43 @@
-<div class="providers-buttons flex-container">
-  <div ng-if="style.social_networks.voucher">
-    <label for="password"> {{ "login-page.enter-password" | translate }}</label>
-    <input ng-model="session.voucher" class="text-center form-control" type="text" id="password" name="password">
-    <button ng-click="authenticate('voucher')" class="btn btn-block form-login_color uv-btn-social" type="button">
+<div>
+
+  <div ng-if="style.social_networks.voucher" class="voucher-auth">
+    <label class="label label_lite" for="password"> {{ "login-page.enter-password" | translate }}:</label>
+    <input ng-model="session.voucher" class="input_lite text-center form-control form-control_lite" type="text" id="password" name="password">
+    <button class="btn btn_lite btn-block" ng-click="authenticate('voucher')" class="btn btn-block form-login_color uv-btn-social" type="button">
       <i class="fa fa-key pull-right"></i>
       <i class="fa fa-key pull-left"></i>
       {{ "login-page.voucher" | translate }}
     </button>
   </div>
-  <button class="btn btn_block btn_provider" ng-if="style.social_networks.instagram" ng-click="authenticate('instagram')" type="button">
+
+  <button ng-if="style.social_networks.instagram" class="btn btn_lite btn-block"  ng-click="authenticate('instagram')" type="button">
     <i class="fa fa-share-alt pull-right"></i>
     <i class="fa fa-instagram pull-left"></i>
     {{ "login-page.instagram-button" | translate }}
   </button>
-  <button class="btn btn_block btn_provider" ng-if="style.social_networks.google" ng-click="authenticate('google')" type="button">
+
+  <button ng-if="style.social_networks.google" class="btn btn_lite btn-block"  ng-click="authenticate('google')" type="button">
     <i class="fa fa-share-alt pull-right"></i>
     <i class="fa fa-google pull-left"></i>
     {{ "login-page.google-button" | translate }}
   </button>
-  <button class="btn btn_block btn_provider" ng-if="style.social_networks.vk" ng-click="authenticate('vk')" type="button">
+
+  <button ng-if="style.social_networks.vk" class="btn btn_lite btn-block"  ng-click="authenticate('vk')" type="button">
     <i class="fa fa-share-alt pull-right"></i>
     <i class="fa fa-vk pull-left"></i>
     {{ "login-page.vk-button" | translate }}
   </button>
-  <button class="btn btn_block btn_provider" ng-if="style.social_networks.facebook" ng-click="authenticate('facebook')" type="button">
+
+  <button ng-if="style.social_networks.facebook" class="btn btn_lite btn-block"  ng-click="authenticate('facebook')" type="button">
     <i class="fa fa-share-alt pull-right"></i>
     <i class="fa fa-facebook pull-left"></i>
     {{ "login-page.facebook-button" | translate }}
   </button>
-  <br>
-  <button class="btn btn_block btn_provider" ng-if="style.social_networks.without" ng-click="authenticate('without')" type="button">
+
+  <button ng-if="style.social_networks.without" class="btn btn_lite btn-block"  ng-click="authenticate('without')" type="button">
     <i class="fa fa-key pull-right"></i>
     <i class="fa fa-key pull-left"></i>
     {{ "login-page.without" | translate }}
   </button>
+
 </div>

@@ -7,15 +7,19 @@ app.component('authpending', {
     config.apiUrl = $scope.session.apiUrl ? $scope.session.apiUrl : config.apiUrl
     config.halUrl = $scope.session.halUrl ? $scope.session.halUrl : config.halUrl
 
-    $scope.allowedRequest = 'get'
-    apiService.hal_availability_check()
-      .then(function(data) {
-        apiService.api_availability_check().then(function(data) {
-          $scope.allowedRequest = data ? 'post' : 'get'
-        })
-      })
+    apiService.hal_availability_check().then(function(data) {
+      $scope.halMethod = data && data.method ? data.method : 'get'
+    });
+    apiService.api_availability_check().then(function(data) {
+      $scope.apiMethod = data && data.method ? data.method : 'get'
+    });
 
-    apiService.getSessionStyle($scope.session, $scope.allowedRequest)
+    $scope.allowedRequest = function() {
+      return ($scope.halMethod == 'post' && $scope.apiMethod == 'post') ? 'post' : 'get'
+    };
+
+
+    apiService.getSessionStyle($scope.session, $scope.allowedRequest())
       .then(function(data) {
         $scope.style = data;
         performCheck();
@@ -23,7 +27,7 @@ app.component('authpending', {
 
     function performCheck() {
       if ($scope.session.sms_code) {
-        apiService.verifyCode($scope.session, $scope.allowedRequest)
+        apiService.verifyCode($scope.session, $scope.allowedRequest())
           .then(function(data) {
             try {
               $state.go(data.next_step ? `main.${data.next_step}` : 'main.authpending', {
@@ -37,7 +41,7 @@ app.component('authpending', {
             reportService.send(JSON.stringify(e));
           });
       } else {
-        apiService.verifyPendingAuth($scope.session, $scope.allowedRequest)
+        apiService.verifyPendingAuth($scope.session, $scope.allowedRequest())
           .then(function(data) {
             try {
               $state.go(data.next_step ? `main.${data.next_step}` : 'main.authpending', {

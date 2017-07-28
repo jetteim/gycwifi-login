@@ -6,13 +6,16 @@ app.component('providers', {
     config.apiUrl = $scope.session.apiUrl ? $scope.session.apiUrl : config.apiUrl;
     config.halUrl = $scope.session.halUrl ? $scope.session.halUrl : config.halUrl;
 
-    $scope.allowedRequest = 'get'
-    apiService.hal_availability_check()
-      .then(function(data) {
-        apiService.api_availability_check().then(function(data) {
-          $scope.allowedRequest = data ? 'post' : 'get'
-        })
-      })
+    apiService.hal_availability_check().then(function(data) {
+      $scope.halMethod = data && data.method ? data.method : 'get'
+    });
+    apiService.api_availability_check().then(function(data) {
+      $scope.apiMethod = data && data.method ? data.method : 'get'
+    });
+
+    $scope.allowedRequest = function() {
+      return ($scope.halMethod == 'post' && $scope.apiMethod == 'post') ? 'post' : 'get'
+    };
 
     try {
       $scope.templatePath = '/templates/' + $rootScope.template + '/providers.html';
@@ -64,7 +67,7 @@ app.component('providers', {
 
       $scope.byWithout = function(params) {
         try {
-          apiService.without(params, $scope.allowedRequest)
+          apiService.without(params, $scope.allowedRequest())
             .then(function(data) {
               if (!data) {
                 $window.location = 'http://enter.gycwifi.com'
@@ -100,7 +103,7 @@ app.component('providers', {
         }
       };
 
-      apiService.getSessionStyle($scope.session, $scope.allowedRequest).then(function(data) {
+      apiService.getSessionStyle($scope.session, $scope.allowedRequest()).then(function(data) {
         $scope.style = data;
         $scope.style.vouchers = data.vouchers
       })

@@ -1,132 +1,101 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.form-control:focus.form-control_lite {
+    box-shadow: none;
 }
 
-a, a:visited, a:focus, a:active {
-    color: #263238;
-}
-
-input {
-    padding: 2px 4px;
-    outline: none;
-    font-weight: 700;
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: #263238;
-}
-
-.app {
-    display: block;
-    background-color: #90A4AE;
-    min-height: 100vh;
-    min-width: 320px;
-    box-sizing: border-box;
-    padding: 10px 10px;
-    color: #263238;
-    font-family: 'Open Sans Condensed', sans-serif;
-}
-
-.section_width {
-    max-width: 300px;
-}
-
-.content-width {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 10px;
-}
-
-.flex-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.flex-item {
-    align-self: center;
-}
-
-.flex-item:last-child {
-    margin-top: auto;
-}
-
-.page-title {
-    text-align: center;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.providers-buttons {
-    width: 300px;
-    box-sizing: border-box;
-}
-
-.btn {
-    display: inline-block;
-    border: none;
-    outline: none;
-    margin: 5px;
-    padding: 10px 20px;
-    background: #eee;
-    font-size: 16px;
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: #263238;
-    cursor: pointer;
-}
-
+.btn.focus,
+.btn:focus,
 .btn:hover {
-    background: #fff;
+    color: #fff;
 }
 
-.btn_block {
-    display: block;
+.form-control_lite {
+    border-radius: 4px;
+    margin-bottom: 5px;
 }
 
-.btn_provider {
-    background: #B0BEC5;
+#main_view {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
-.btn_provider:hover {
-    background: #CFD8DC;
+#background {
+    position: absolute;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    left: -15px;
+    top: -10px;
+    filter: blur(4px);
+    background-position-x: center;
+    background-size: cover;
+    z-index: -1;
 }
 
-.question-title {
-    font-size: 16px;
-    font-weight: 700;
+.container_content {
+    max-width: 330px;
 }
 
-.answer-option {
-    margin: 10px 10px;
+.btn_lite {
+    margin: 10px 0;
+    background: transparent;
+    border: 1px solid #eee;
+    color: #eee;
+}
+
+.input_lite {
+    background: transparent;
+    border-bottom: 1px solid #eee;
+    color: #eee;
+    box-shadow: none;
+}
+
+.copyright-text {
+    color: #eee;
+}
+
+.copyright-link {
+    color: #eee;
+    text-decoration: underline;
+}
+
+.voucher-auth {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.law-text {
+    color: #eee;
+}
+
+.block {
+    margin-top: 20px;
 }
 
 .internet-title {
-    font-size: 28px;
-    margin: 20px 0;
+    text-transform: uppercase;
+    font-size: 1.4em;
+    color: #eee;
 }
 
-.btn_on-internet {
-    margin: 20px 0;
+footer {
+    bottom: 0;
 }
 
-.provider-link {
-    font-size: 14px;
-    font-weight: 700;
+poll {
+    color: #eee;
 }
 
-.provider-link:hover {
-    color: #37474F;
+.answer-option {
+    margin: 5px 0;
 }
 
-.phone-form {
-    width: 300px;
-}
+@media (min-width: 640px) {
 
-.input_phone-number {
-    border: none;
-    margin-top: 10px;
-    background-color: #ECEFF1;
+
 }

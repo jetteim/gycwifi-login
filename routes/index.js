@@ -2,8 +2,9 @@ const fs = require('fs');
 const httpRequest = require('request');
 const querystring = require('querystring');
 const config = require('../config');
+const stringify = require('json-stringify-safe');
 // Controllers
-const apiCtrl = require('../controllers/api.ctrl')(httpRequest, querystring, config);
+const apiCtrl = require('../controllers/api.ctrl')(httpRequest, querystring, config, stringify);
 const testCtrl = require('../controllers/test.ctrl')(httpRequest);
 const errorCtrl = require('../controllers/error.ctrl')(fs);
 const homeCtrl = require('../controllers/home.ctrl')();

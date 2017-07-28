@@ -1,17 +1,22 @@
-<form class="js-validation-login flex flex_column">
+<form class="js-validation-login">
 
-  <div>
-    <h3 class="text-center internet-title">{{style.title}}</h3>
-    <!-- <p ng-if="$ctrl.data.last_page_content === 'text'" class="text-center">{{$ctrl.promoText}}</p> -->
-    <p class="text-center">{{style.promoText}}</p>
+  <div class="block container-content-light">
+    <div>
+      <h3 class="text-center internet-title">{{style.title}}</h3>
+      <!-- <p ng-if="$ctrl.data.last_page_content === 'text'" class="text-center">{{$ctrl.promoText}}</p> -->
+      <p class="text-center">{{style.promo_text}}</p>
+
+      <poll class="container" poll="poll"></poll>
+
+    </div>
   </div>
 
-  <poll poll="poll" style="align-self: center"></poll>
-
-  <div class="flex flex_column">
-    <button ng-click="$ctrl.goToInternet()" class="btn btn_provider btn_on-internet">
-      Перейти в интернет
-    </button>
+  <div class="block">
+    <div>
+      <button ng-click="$ctrl.goToInternet()" class="btn btn_green btn-block">
+        {{ "internet-page.login" | translate }}
+      </button>
+    </div>
   </div>
 
 </form>

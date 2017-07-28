@@ -5,7 +5,7 @@ const config = require('./config');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const ExpressErrorHandler = require('errorhandler');
-const consolere = require('console-remote-client').connect('console.re','80','gycwifi');
+const consolere = require('console-remote-client').connect('console.re', '80', 'gycwifi');
 // Init express
 const app = express();
 
@@ -24,7 +24,9 @@ app.use(sendHttpError);
 // Set logger
 require('./utils/logger')(app, ENV);
 
-app.use(bodyParser.urlencoded({ extended: true })); // req.body
+app.use(bodyParser.urlencoded({
+  extended: true
+})); // req.body
 app.use(bodyParser.json());
 app.use(cookieParser());
 
@@ -42,6 +44,6 @@ require('./routes')(app, config);
 require('./utils/errorHandler')(app, ENV, HttpError, ExpressErrorHandler);
 
 // Start Server
-var server = http.createServer(app).listen(config.get('port'), function(){
-    console.log('Express server listening on port ' + config.get('port'));
+var server = http.createServer(app).listen(config.get('port'), function () {
+  console.log('Express server listening on port ' + config.get('port'));
 });

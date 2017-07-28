@@ -2,17 +2,17 @@
   <div>
     <div>
       <div>
-        <input ng-model="session.sms_code" type="tel" id="sms_code" name="sms_code" placeholder="_ _ _ _">
-        <label for="sms_code">
-          {{ "sms-page.enter-sms-code" | translate }}
+        <label class="label label_lite" for="sms_code">
+          {{ "sms-page.enter-sms-code" | translate }}:
         </label>
+        <input class="input_lite text-center form-control form-control_lite" ng-model="session.sms_code" type="tel" id="sms_code" name="sms_code" placeholder="_ _ _ _">
       </div>
     </div>
   </div>
 
   <div>
     <div>
-      <button type="submit">
+      <button class="btn btn_lite btn-block" type="submit">
         {{ "sms-page.send" | translate }}
       </button>
     </div>

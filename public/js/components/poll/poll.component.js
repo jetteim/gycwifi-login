@@ -6,13 +6,17 @@
     controller: function($http, $scope, $rootScope, apiService) {
       $scope.templatePath = '/templates/' + $rootScope.template + '/poll.html';
       var self = this;
-      $scope.allowedRequest = 'get'
-      apiService.hal_availability_check()
-        .then(function(data) {
-          apiService.api_availability_check().then(function(data) {
-            $scope.allowedRequest = data ? 'post' : 'get'
-          })
-        })
+      apiService.hal_availability_check().then(function(data) {
+        $scope.halMethod = data && data.method ? data.method : 'get'
+      });
+      apiService.api_availability_check().then(function(data) {
+        $scope.apiMethod = data && data.method ? data.method : 'get'
+      });
+
+      $scope.allowedRequest = function() {
+        return ($scope.halMethod == 'post' && $scope.apiMethod == 'post') ? 'post' : 'get'
+      };
+
 
       this._cookResult = function(selected) {
         var result = {};
@@ -53,19 +57,19 @@
       };
 
       this.send = function() {
-        return apiService.sendPoll(this._cookResult(this.poll), $scope.allowedRequest)
+        return apiService.sendPoll(this._cookResult(this.poll), $scope.allowedRequest())
       };
 
       $scope.$on('sendPoll', function(event, callBack) {
         self.send()
           .then(function(data) {
-            if (data.data && (data.data.status !== 'error')) {
+            if (data && data.data && (data.data.status !== 'error')) {
               callBack({
                 error: 'poll results sent'
               })
             } else {
               callBack({
-                error: e
+                error: 'poll result not sent'
               })
             }
           })
