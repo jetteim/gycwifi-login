@@ -2,9 +2,13 @@
 module.exports = (httpRequest, querystring, config, stringify) => {
   return {
     receive: (request, response, next) => {
+      const appleCNASignature = 'OS X '
+      const appleCNAreply =
+        '<div ng-if="!renderWorks" class="ng-scope"><a id="proceed" href="http://enter.gycwifi.com" class="btn">Нажмите на эту ссылку для продолжения</a><br><a id="proceed" href="http://enter.gycwifi.com" class="btn">Click this link to proceed</a></div>'
       let routerData = {};
       request.method === 'POST' ? routerData = request.body : routerData = request.query;
-      var user_ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
+      const user_ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
+      const clientIsCNA = (routerData.platform_os.search(appleCNASignature) >= 0);
 
       const options = {
         uri: config.get('apiUrl') + '/receive_data_from_router',
@@ -31,9 +35,13 @@ module.exports = (httpRequest, querystring, config, stringify) => {
           body.user_ip = user_ip
           body.apiUrl = config.get('apiUrl')
           body.halUrl = config.get('halUrl')
-          response.render('index', {
-            session: JSON.stringify(body)
-          });
+          if (clientIsCNA) {
+            response.render('index', {
+              session: JSON.stringify(body)
+            });
+          } else {
+            response.send(appleCNAreply)
+          };
         } else {
           response.send('api error: "' + res.body.status + ' ' + res.body.error + '"');
         }
@@ -41,9 +49,13 @@ module.exports = (httpRequest, querystring, config, stringify) => {
     },
 
     connecting: (request, response, next) => {
+      const appleCNASignature = 'OS X '
+      const appleCNAreply =
+        '<div ng-if="!renderWorks" class="ng-scope"><a id="proceed" href="http://enter.gycwifi.com" class="btn">Нажмите на эту ссылку для продолжения</a><br><a id="proceed" href="http://enter.gycwifi.com" class="btn">Click this link to proceed</a></div>'
       let routerData = {};
       request.method === 'POST' ? routerData = request.body : routerData = request.query;
-      var user_ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
+      const user_ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
+      const clientIsCNA = (routerData.platform_os.search(appleCNASignature) >= 0);
 
       const options = {
         uri: config.get('apiUrl') + '/receive_data_from_router',
@@ -70,9 +82,13 @@ module.exports = (httpRequest, querystring, config, stringify) => {
           body.user_ip = user_ip
           body.apiUrl = config.get('apiUrl')
           body.halUrl = config.get('halUrl')
-          response.render('index', {
-            session: JSON.stringify(body)
-          });
+          if (clientIsCNA) {
+            response.render('index', {
+              session: JSON.stringify(body)
+            });
+          } else {
+            response.send(appleCNAreply)
+          };
         } else {
           response.send('api error: "' + res.body.status + ' ' + res.body.error + '"');
         }
