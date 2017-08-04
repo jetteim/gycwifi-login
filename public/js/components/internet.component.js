@@ -19,7 +19,7 @@ app.component('internet', {
     };
 
     reportService.sendstring(`authorize_client using ${$scope.allowedRequest()}`);
-    apiService.authorizeClient($scope.session, $scope.allowedRequest())
+    apiService.authorizeClient($scope.session, $scope.allowedRequest());
 
     apiService.getSessionPoll($scope.session, $scope.allowedRequest()).then(function(data) {
       $scope.poll = data;
