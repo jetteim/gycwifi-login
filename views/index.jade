@@ -23,7 +23,7 @@ html(lang="en", ng-app="app")
       a#proceed.button(href='http://enter.gycwifi.com') Нажмите на эту ссылку для продолжения
       br
       a#proceed.button(href='http://enter.gycwifi.com') Click this link to proceed
-    section.app(ng-if='renderWorks', ui-view='', ng-init = "session = '#{session}'")
+    section.app(ui-view='', ng-init = "session = '#{session}'")
     script(src="/vendors/jquery.min.js")
     script(src="/vendors/bootstrap.min.js")
     script(src="/js/index.js")
