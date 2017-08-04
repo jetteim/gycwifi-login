@@ -1,0 +1,43 @@
+{
+  "access-by": {
+    "provider": "Internet access by ",
+    "url": "www.gycwifi.com"
+  },
+  "internet-page": {
+    "login": "Enter the Internet"
+  },
+  "login-page": {
+    "email": "Email",
+    "enter-password": "Enter access code",
+    "facebook-button": "Log in with Facebook",
+    "google-button": "Log in with Google",
+    "instagram-button": "Log in with Instagram",
+    "or-sign-in": "Or sign in",
+    "or-sign-up": "Or registration",
+    "password": "Password",
+    "recover-password": "Forgot password?",
+    "send": "Send",
+    "sign-in-button": "Sign in",
+    "sms-auth": "SMS Auth",
+    "title": "Login",
+    "twitter-button": "Log in with Twitter",
+    "username": "Username",
+    "vk-button": "Log in with VK",
+    "voucher": "Login by voucher",
+    "without": "Login without social network"
+  },
+  "phone-page": {
+    "enter-phone-number": "Please enter your phone number",
+    "law": "We need you to confirm your identity in accordance with the law",
+    "send": "Proceed",
+  },
+  "phone-pending": {
+    "authorize-by-call1": "Please make call from your phone {{phoneNumber}} to number ",
+    "authorize-by-call2": "+7(916)930-63-59",
+    "authorize-by-call3": ". The call will be dropped and there will be no charge, even if you are in roaming",
+    "check-client-number": "Proceed",
+    "enter-sms-code": "Or enter code received by sms",
+    "make-a-call": "Make a call",
+    "not-my-number": "Change number"
+  }
+}

@@ -1,0 +1,23 @@
+<main id="main_view">
+
+    <div id="background" style="background-image: linear-gradient(rgba(37, 40, 47, .3), rgba(37, 40, 47, 0.4)), url('{{mediaPath}}/bg.jpg');"></div>
+
+    <section class="container container_content">
+        <header>
+            <div class="text-center">
+                <img src="{{ style.logo }}">
+            </div>
+        </header>
+
+        <section ui-view></section>
+
+    </section>
+
+    <footer>
+        <p class="copyright-text text-center">
+            {{'access-by.provider' | translate}}
+            <a class="copyright-link" href="https://gycwifi.com">{{'access-by.url' | translate}}</a>
+        </p>
+    </footer>
+
+</main>

@@ -1,0 +1,94 @@
+doctype html
+html(lang="en", ng-app="app")
+  head
+    meta(charset="UTF-8")
+    meta(content="width=device-width, initial-scale=1.0, maximum-scale=1.2", name="viewport")
+    title
+
+    // Angular
+    script(src="/vendors/modernizr.min.js")
+    script(src="/vendors/angular.min.js")
+    script(src="/vendors/angular-ui-router.js")
+    script(src="/vendors/angular-translate.min.js")
+    script(src="/vendors/angular-translate-loader-static-files.min.js")
+    script(src="/vendors/angular-cookies.min.js")
+    script(src="/vendors/satellizer.js")
+
+    // All libraries in one file
+    link(ng-if='template', rel="stylesheet", ng-href='/templates/{{template}}/css/libraries.css')
+    // Main template styles
+    link(ng-if='template', rel="stylesheet", ng-href='/templates/{{template}}/css/template.css')
+  body
+    div(ng-if='!renderWorks')
+      a#proceed.button(href='http://enter.gycwifi.com') Нажмите на эту ссылку для продолжения
+      br
+      a#proceed.button(href='http://enter.gycwifi.com') Click this link to proceed
+    section.app(ui-view='', ng-init = "session = '#{session}'")
+    script(src="/vendors/jquery.min.js")
+    script(src="/vendors/bootstrap.min.js")
+    script(src="/js/index.js")
+    // Components
+    script(src="/js/components/main-view.component.js")
+    script(src="/js/components/providers.component.js")
+    script(src="/js/components/phone.component.js")
+    script(src="/js/components/authpending.component.js")
+    script(src="/js/components/sms.component.js")
+    script(src="/js/components/poll/poll.component.js")
+    script(src="/js/components/internet.component.js")
+    // Services
+    script(src="/js/services/browser-features.service.js")
+    script(src="/js/services/lang.service.js")
+    script(src="/js/services/test-data.service.js")
+    script(src="/js/services/report.service.js")
+    script(src="/js/services/internet.service.js")
+    script(src="/js/services/api.service.js")
+    script(src="/js/services/plugins.service.js")
+    script(src="/js/services/message.service.js")
+    script(src="/js/services/cookies.service.js")
+    script(src="/js/services/profile.service.js")
+    // Yandex.Metrika counter
+    script(type='text/javascript').
+      (function (d, w, c) {
+      (w[c] = w[c] || []).push(function() {
+      try {
+      w.yaCounter43871414 = new Ya.Metrika({
+      id:43871414,
+      clickmap:true,
+      trackLinks:true,
+      accurateTrackBounce:true,
+      webvisor:true,
+      trackHash:true,
+      ut:"noindex"
+      });
+      } catch(e) { }
+      });
+      var n = d.getElementsByTagName("script")[0],
+      s = d.createElement("script"),
+      f = function () { n.parentNode.insertBefore(s, n); };
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://mc.yandex.ru/metrika/watch.js";
+      if (w.opera == "[object Opera]") {
+      d.addEventListener("DOMContentLoaded", f, false);
+      } else { f(); }
+      })(document, window, "yandex_metrika_callbacks");
+    noscript
+      div
+        img(src='https://mc.yandex.ru/watch/43871414?ut=noindex', style='position:absolute; left:-9999px;', alt='')
+    // /Yandex.Metrika counter
+    script.
+      (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-79660058-1', 'auto', {'allowLinker': true});
+      ga('require', 'linker');
+      ga('linker:autoLink', ['gycwifi.com']);
+      ga('send', 'pageview');

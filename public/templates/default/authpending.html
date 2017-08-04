@@ -1,0 +1,44 @@
+<form class="js-validation-login form-horizontal push-30-t">
+
+  <div class="form-group">
+    <div class="col-xs-12">
+      <div>
+        {{ 'phone-pending.authorize-by-call1' | translate: {phoneNumber: session.phone_number} }}
+        <a href="tel:{{ 'phone-pending.authorize-by-call2' | translate }}">{{ 'phone-pending.authorize-by-call2' | translate }}</a> {{ 'phone-pending.authorize-by-call3' | translate }}
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-xs-6">
+      <a href="tel:{{'phone-pending.authorize-by-call2' | translate}}" class="btn pull-left form-login_color login-button" ng-click="$ctrl.checkClientNumber()">
+        {{ "phone-pending.make-a-call" | translate }}
+      </a>
+    </div>
+    <div class="col-xs-6">
+      <button class="btn form-login_color login-button pull-right" ng-click="$ctrl.notMyNumber()">
+        {{ "phone-pending.not-my-number" | translate }}
+      </button>
+    </div>
+  </div>
+
+  <div class="form-group" ng-if="style.sms_auth">
+    <div class="col-xs-12 text-center push-10-t">
+      <label for="sms_code">
+        {{ "phone-pending.enter-sms-code" | translate }}
+      </label>
+    </div>
+    <div class="col-xs-12 text-center push-10">
+      <div class="col-xs-4 col-xs-offset-4">
+        <div class="">
+          <input ng-model="session.sms_code" class="text-center form-control" type="tel" id="sms_code" name="sms_code" placeholder="_ _ _ _">
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 text-center push-10">
+      <button class="btn form-login_color login-button" ng-click="$ctrl.checkClientNumber()">
+        {{ "phone-pending.check-client-number" | translate }}
+      </button>
+    </div>
+
+</form>

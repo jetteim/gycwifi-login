@@ -1,0 +1,51 @@
+<form class="js-validation-login">
+
+  <div class="block">
+    <div>
+      <div>
+        {{ 'phone-pending.authorize-by-call1' | translate: {phoneNumber: session.phone_number} }}
+        <a href="tel:{{ 'phone-pending.authorize-by-call2' | translate }}">{{ 'phone-pending.authorize-by-call2' | translate }}</a> {{ 'phone-pending.authorize-by-call3' | translate }}
+      </div>
+    </div>
+  </div>
+
+  <div  class="block">
+    <div>
+      <a href="tel:{{'phone-pending.authorize-by-call2' | translate}}" ng-click="$ctrl.checkClientNumber()">
+        {{ "phone-pending.make-a-call" | translate }}
+      </a>
+    </div>
+    <div>
+      <button ng-click="$ctrl.notMyNumber()" class="btn btn_lite btn-block">
+        {{ "phone-pending.not-my-number" | translate }}
+      </button>
+    </div>
+  </div>
+
+  <div ng-if="style.sms_auth" class="block">
+    <div>
+      <div>
+        <label for="sms_code">
+        {{ "phone-pending.enter-sms-code" | translate }}
+      </label>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <div>
+          <input ng-model="session.sms_code" class="input_lite text-center form-control form-control_lite" type="tel" id="sms_code" name="sms_code" placeholder="_ _ _ _">
+        </div>
+      </div>
+
+      <div>
+        <div class="text-center">
+          <button ng-click="$ctrl.checkClientNumber()" class="btn btn_lite btn-block">
+            {{ "phone-pending.check-client-number" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>

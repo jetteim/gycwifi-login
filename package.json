@@ -1,0 +1,32 @@
+{
+  "name": "app-get-wifi",
+  "version": "1.0.0",
+  "description": "* Dashboard * Brands * Locations * Routers * Clients - Integrations * Export to AmoCRM * Export to MailChimp - Advanced * Vips * Help",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.key-g.com:key-g/api_wifi.git"
+  },
+  "author": "Bro",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "console-remote-client": "^0.4.3",
+    "cookie-parser": "^1.4.3",
+    "errorhandler": "^1.5.0",
+    "express": "^4.14.0",
+    "jade": "^1.11.0",
+    "morgan": "^1.7.0",
+    "nconf": "^0.8.4",
+    "request": "^2.78.0",
+    "babel": "^6.5.2",
+    "babel-core": "^6.18.0",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "stylus": "^0.54.5",
+    "webpack": "^1.13.3"
+  }
+}

@@ -1,0 +1,19 @@
+<form class="js-validation-login form-horizontal push-30-t" ng-submit="$ctrl.send()">
+  <div class="form-group">
+    <div class="col-xs-12">
+      <div class="form-material form-material-primary">
+        <input ng-model="$ctrl.form.sms_code" class="form-control" type="tel" id="sms_code" name="sms_code" placeholder="_ _ _ _">
+        <label for="sms_code">
+          {{ "sms-page.enter-sms-code" | translate }}
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-xs-12">
+      <button class="btn form-login_color login-button" type="submit">
+        {{ "sms-page.send" | translate }}
+      </button>
+    </div>
+  </div>
+</form>

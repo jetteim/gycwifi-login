@@ -1,0 +1,39 @@
+<form class="js-validation-login form-horizontal push-30-t">
+  <div class="form-group">
+    <div class="col-xs-12">
+      <div class="form-material form-material-primary">
+        <h3 class="text-center">{{style.title}}</h3>
+        <!-- <p ng-if="$ctrl.data.last_page_content === 'text'" class="text-center">{{$ctrl.promoText}}</p> -->
+        <p class="text-center">{{style.promo_text}}</p>
+        <poll poll="poll"></poll>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-xs-12 text-center">
+      <button class="btn form-login_color login-button" ng-click="$ctrl.goToInternet()">
+        {{ "internet-page.login" | translate }}
+      </button>
+    </div>
+  </div>
+</form>
+
+<!--
+  https://login2.gycwifi.com/receive_data_from_router_cna?mac=4B%3A7C%3A5F%3A3D%3A09%3A74&ip=192.168.90.253&username=&link-login=https%3A%2F%2Fenter.gycwifi.com%2Flogin%3Fdst%3Dhttps%253A%252F%252Fenter.gycwifi.com%252Flogin%253Fdst%253Dhttp%25253A%25252F%25252Fcaptive.apple.com%25252Fhotspot-detect.html&link-orig=https%3A%2F%2Fenter.gycwifi.com%2Flogin%3Fdst%3Dhttp%253A%252F%252Fcaptive.apple.com%252Fhotspot-detect.html&dst=https%3A%2F%2Fenter.gycwifi.com%2Flogin%3Fdst%3Dhttp%253A%252F%252Fcaptive.apple.com%252Fhotspot-detect.html&error=&link-login-only=https%3A%2F%2Fenter.gycwifi.com%2Flogin&link-orig-esc=https%253A%252F%252Fenter.gycwifi.com%252Flogin%253Fdst%253Dhttp%25253A%25252F%25252Fcaptive.apple.com%25252Fhotspot-detect.html&trial=no&mac-esc=4C%253A7C%253A5F%253A3D%253A09%253A74&nas_cn=client221&nas_serial=6437053F90CD%2F533&iphone=&platform_os=iOS+10.2.1&platform_product=iPhone
+-->
+<!-- Test data -->
+<!-- {"mac"=>"4C:7C:5F:3D:09:74", "ip"=>"192.168.90.253",
+"username"=>"T-4C:7C:5F:3D:09:74",
+"link-login"=>"http://enter.gycwifi.com/login", "link-orig"=>"", "dst"=>"",
+"error"=>"user T-4C:7C:5F:3D:09:74 has reached uptime limit",
+"link-login-only"=>"http://enter.gycwifi.com/login", "link-orig-esc"=>"",
+"trial"=>"no", "mac-esc"=>"4C%3A7C%3A5F%3A3D%3A09%3A74", "nas_cn"=>"client17",
+"nas_serial"=>"5581042A1E14/514 ", "iphone"=>"", "platform_os"=>"iOS 10.2",
+"platform_product"=>"iPhone", "auth"=>{"mac"=>"4C:7C:5F:3D:09:74",
+"ip"=>"192.168.90.253", "username"=>"T-4C:7C:5F:3D:09:74",
+"link-login"=>"http://enter.gycwifi.com/login", "link-orig"=>"", "dst"=>"",
+"error"=>"user T-4C:7C:5F:3D:09:74 has reached uptime limit",
+"link-login-only"=>"http://enter.gycwifi.com/login", "link-orig-esc"=>"",
+"trial"=>"no", "mac-esc"=>"4C%3A7C%3A5F%3A3D%3A09%3A74", "nas_cn"=>"client17",
+"nas_serial"=>"5581042A1E14/514 ", "iphone"=>"", "platform_os"=>"iOS 10.2",
+"platform_product"=>"iPhone"}} -->

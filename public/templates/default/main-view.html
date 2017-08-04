@@ -1,0 +1,61 @@
+<div class="content overflow-hidden">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+      <!-- Login Block -->
+      <div class="uv-form form-login block block-themed animated fadeIn">
+        <div class="uv-form-title-wrap block-header form-login_color">
+          <ul class="block-options">
+            <li class="btn-group">
+              <button data-toggle="dropdown" type="button" class="btn btn-link text-gray dropdown-toggle">
+                <i class="fa fa-caret-down fa-caret-down_sidebar-lang"></i>
+                <img src="/images/{{lang}}.png" alt="English lang" class="lang-flag"/>
+              </button>
+              <ul class="dropdown-menu dropdown-menu_sidebar dropdown-menu-right font-s13 sidebar-mini-hide">
+                <li>
+                  <a href="" ng-click="changeLang('ru')">
+                    <i class="pull-right"><img src="/images/ru.png" alt="English lang" class="lang-flag lang-flag_small-drop"/></i>
+                    <span class="font-w600">Русский</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="" ng-click="changeLang('en')">
+                    <i class="pull-right"><img src="/images/en.png" alt="English lang" class="lang-flag lang-flag_small-drop"/></i>
+                    <span class="font-w600">English</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h3 class="uv-form-title block-title">
+            {{ 'login-page.title' | translate: {title: style.title} }}
+          </h3>
+        </div>
+
+        <div class="block-content block-content-full block-content-narrow">
+
+          <!-- Login Title -->
+          <div class="text-center">
+            <!-- <img width="150" height="112" src="../images/logo_login.png"> -->
+            <img width="150" height="112" src="{{ style.logo }}">
+          </div>
+          <!-- END Login Title -->
+          <section ui-view></section>
+          <!-- {{$ctrl.temp}} -->
+        </div>
+        <div class="block-content block-content-full" style="font-size: 0.5em">
+          <p class="small pull-right">
+            {{'access-by.provider' | translate}}
+            <a href="https://gycwifi.com">{{'access-by.url' | translate}}</a>
+          </p>
+        </div>
+
+        <!-- END Login Form -->
+
+      </div>
+      <!-- END Login Block -->
+    </div>
+  </div>
+</div>
+
+
+<!-- END Login Content -->

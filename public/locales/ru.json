@@ -1,0 +1,43 @@
+{
+  "access-by": {
+    "provider": "Доступ предоставлен ",
+    "url": "www.gycwifi.com"
+  },
+  "internet-page": {
+    "login": "Перейти в интернет"
+  },
+  "login-page": {
+    "email": "Email",
+    "enter-password": "Введите код доступа",
+    "facebook-button": "Войти через Facebook",
+    "google-button": "Войти через Google",
+    "instagram-button": "Войти через Instagram",
+    "or-sign-in": "Или войти",
+    "or-sign-up": "Или зарегистрируйтесь",
+    "password": "Пароль",
+    "recover-password": "Забыли пароль?",
+    "send": "Отправить",
+    "sign-in-button": "Войти",
+    "sms-auth": "Войти через SMS",
+    "title": "Авторизация",
+    "twitter-button": "Войти через Twitter",
+    "username": "Логин",
+    "vk-button": "Войти через VK",
+    "voucher": "Войти с ваучером",
+    "without": "Войти без социальной сети"
+  },
+  "phone-page": {
+    "enter-phone-number": "Введите, пожалуйста, свой номер телефона",
+    "law": "Мы обязаны идентифицировать вас перед тем, как предоставить доступ в Интернет, в соответствии с Федеральным законом РФ от 5 мая 2014 г. и постановлениями Правительства РФ",
+    "send": "Продолжить"
+  },
+  "phone-pending": {
+    "authorize-by-call1": "Для завершения авторизации сделайте бесплатный звонок с вашего телефона {{phoneNumber}} на номер ",
+    "authorize-by-call2": "+7(916)930-63-59",
+    "authorize-by-call3": ". Ваш вызов будет сброшен, и звонок не будет тарифицирован.",
+    "check-client-number": "Продолжить",
+    "enter-sms-code": "Или введите код, полученный в смс",
+    "make-a-call": "Позвонить",
+    "not-my-number": "Изменить номер"
+  }
+}

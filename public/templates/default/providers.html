@@ -1,0 +1,90 @@
+<!-- Login Form -->
+
+<br>
+
+<!--Buttons section-->
+<div class="row">
+  <div class="col-md-12 push-5" ng-if="style.social_networks.voucher">
+    <label for="password"> {{ "login-page.enter-password" | translate }}</label>
+    <input ng-model="session.voucher" class="text-center form-control" type="text" id="password" name="password">
+  </div>
+  <div class="col-md-12 push-5" ng-if="style.social_networks.voucher">
+    <button ng-click="authenticate('voucher')" class="btn btn-block form-login_color uv-btn-social" type="button">
+      <i class="fa fa-key pull-right"></i>
+      <i class="fa fa-key pull-left"></i>
+      {{ "login-page.voucher" | translate }}
+    </button>
+  </div>
+  <div class="col-md-12">
+    <!-- <button ng-if="$ctrl.twitter" ng-click="$ctrl.authenticate('twitter')" class="btn btn-block form-login_color" type="button">
+      <i class="fa fa-share-alt pull-right"></i>
+      <i class="fa fa-twitter pull-left"></i>
+      {{ "login-page.twitter-button" | translate }}
+    </button> -->
+    <button ng-if="style.social_networks.instagram" ng-click="authenticate('instagram')" class="btn btn-block form-login_color uv-btn-social" type="button">
+      <i class="fa fa-share-alt pull-right"></i>
+      <i class="fa fa-instagram pull-left"></i>
+      {{ "login-page.instagram-button" | translate }}
+    </button>
+    <button ng-if="style.social_networks.google" ng-click="authenticate('google')" class="btn btn-block form-login_color uv-btn-social" type="button">
+      <i class="fa fa-share-alt pull-right"></i>
+      <i class="fa fa-google pull-left"></i>
+      {{ "login-page.google-button" | translate }}
+    </button>
+    <button ng-if="style.social_networks.vk" ng-click="authenticate('vk')" class="btn btn-block form-login_color uv-btn-social" type="button">
+      <i class="fa fa-share-alt pull-right"></i>
+      <i class="fa fa-vk pull-left"></i>
+      {{ "login-page.vk-button" | translate }}
+    </button>
+    <button ng-if="style.social_networks.facebook" ng-click="authenticate('facebook')" class="btn btn-block form-login_color uv-btn-social" type="button">
+      <i class="fa fa-share-alt pull-right"></i>
+      <i class="fa fa-facebook pull-left"></i>
+      {{ "login-page.facebook-button" | translate }}
+    </button>
+    <br>
+    <button ng-if="style.social_networks.without" ng-click="authenticate('without')" class="btn btn-block form-login_color uv-btn-social" type="button">
+      <i class="fa fa-key pull-right"></i>
+      <i class="fa fa-key pull-left"></i>
+      {{ "login-page.without" | translate }}
+    </button>
+  </div>
+</div>
+
+<br>
+
+<!-- <form ng-if="$ctrl.pass" class="js-validation-login form-horizontal push-30-t push-50" -->
+<!-- ng-submit="$ctrl.authenticate('password')"> -->
+
+
+
+
+<!--<div class="form-group">-->
+<!--<div class="col-xs-12">-->
+<!--<div class="form-material form-material-primary floating">-->
+<!--<input ng-model="$ctrl.password" class="form-control uv-input" type="password" id="login-password" name="login-password">-->
+<!--<label for="login-password">-->
+<!--{{ "login-page.password" | translate }}-->
+<!--</label>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="form-group">-->
+<!--<div class="col-xs-12">-->
+<!--<button class="btn form-login_color login-button uv-btn-submit" type="submit">-->
+<!--<i class="si si-login pull-right"></i>-->
+<!--{{ "login-page.sign-in-button" | translate }}-->
+<!--</button>-->
+<!--</div>-->
+<!--</div>-->
+
+<!-- <div class="form-group"> -->
+<!-- <div class="col-xs-12"> -->
+<!-- <button class="btn btn-block form-login_color login-button uv-btn-submit" type="submit"> -->
+<!-- <i class="si si-login pull-right"></i> -->
+<!-- {{ "login-page.sms-auth" | translate }} -->
+<!-- {{ "login-page.without" | translate }} -->
+<!-- </button> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- </form> -->
