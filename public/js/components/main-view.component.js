@@ -51,7 +51,6 @@ app.component('mainView', {
         $scope.lang = lang;
       };
       var next_step = $scope.session ? $scope.session.next_step || 'phone' : 'phone';
-      next_step = 'providers'
       $state.go('main.' + next_step, {
         session: $scope.session
       });
