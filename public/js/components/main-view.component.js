@@ -3,7 +3,7 @@ app.component('mainView', {
   templateUrl: "templates/main-view.html",
   controller: function($scope, $http, profileService, $element, $state, reportService, $stateParams, apiService, langService, $rootScope) {
     // в index.jade ng-init = "session = '#{session}'", а в index.js в методе контроллера sessionCtrl отдали сессию в $rootScope.session
-    reportService.send('loaded main view controller, getting API data')
+    reportService.sendstring('loaded main view controller, getting API data')
     $rootScope.renderWorks = false
     try {
       $scope.lang = 'ru';
@@ -31,7 +31,7 @@ app.component('mainView', {
 
       var defaultTemplate = 'default';
 
-      reportService.send('now loading template from location style');
+      reportService.sendstring('now loading template from location style');
 
       apiService.getSessionStyle($scope.session, $scope.allowedRequest())
         .then(function(styles) {
@@ -47,7 +47,7 @@ app.component('mainView', {
         })
         .catch(function(e) {
           setAppTemplate(styles.template || defaultTemplate);
-          reportService.send(JSON.stringify(e));
+          reportService.sendstring(JSON.stringify(e));
         });
 
       $scope.changeLang = function(lang) {
@@ -55,7 +55,7 @@ app.component('mainView', {
         $scope.lang = lang;
       };
       $rootScope.renderWorks = true
-      reportService.send('navigating to the next step');
+      reportService.sendstring('navigating to the next step');
       var next_step = $scope.session ? $scope.session.next_step || 'phone' : 'phone';
       $state.go('main.' + next_step, {
         session: $scope.session
