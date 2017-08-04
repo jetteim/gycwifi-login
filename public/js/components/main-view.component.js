@@ -3,30 +3,30 @@ app.component('mainView', {
   templateUrl: "templates/main-view.html",
   controller: function($scope, $http, profileService, $element, $state, reportService, $stateParams, apiService, langService, $rootScope) {
     // в index.jade ng-init = "session = '#{session}'", а в index.js в методе контроллера sessionCtrl отдали сессию в $rootScope.session
-    $scope.lang = 'ru';
-    $scope.session = $rootScope.session;
-    config.apiUrl = $scope.session.apiUrl ? $scope.session.apiUrl : config.apiUrl;
-    config.halUrl = $scope.session.halUrl ? $scope.session.halUrl : config.halUrl;
-
-    apiService.hal_availability_check().then(function(data) {
-      $scope.halMethod = data && data.method ? data.method : 'get'
-    });
-    apiService.api_availability_check().then(function(data) {
-      $scope.apiMethod = data && data.method ? data.method : 'get'
-    });
-
-    $scope.allowedRequest = function() {
-      return ($scope.halMethod == 'post' && $scope.apiMethod == 'post') ? 'post' : 'get'
-    };
-
-    function setAppTemplate(template) {
-      if (!template) return;
-      $rootScope.template = template;
-      $scope.templatePath = '/templates/' + template + '/main-view.html';
-      $scope.mediaPath = '/templates/' + template + '/images';
-    }
-
     try {
+      $scope.lang = 'ru';
+      $scope.session = $rootScope.session;
+      config.apiUrl = $scope.session.apiUrl ? $scope.session.apiUrl : config.apiUrl;
+      config.halUrl = $scope.session.halUrl ? $scope.session.halUrl : config.halUrl;
+
+      apiService.hal_availability_check().then(function(data) {
+        $scope.halMethod = data && data.method ? data.method : 'get'
+      });
+      apiService.api_availability_check().then(function(data) {
+        $scope.apiMethod = data && data.method ? data.method : 'get'
+      });
+
+      $scope.allowedRequest = function() {
+        return ($scope.halMethod == 'post' && $scope.apiMethod == 'post') ? 'post' : 'get'
+      };
+
+      function setAppTemplate(template) {
+        if (!template) return;
+        $rootScope.template = template;
+        $scope.templatePath = '/templates/' + template + '/main-view.html';
+        $scope.mediaPath = '/templates/' + template + '/images';
+      }
+
       var defaultTemplate = 'default';
 
       apiService.getSessionStyle($scope.session, $scope.allowedRequest())
