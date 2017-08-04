@@ -20,6 +20,10 @@ html(lang="en", ng-app="app")
     link(ng-if='template', rel="stylesheet", ng-href='/templates/{{template}}/css/template.css')
   body
     section.app(ui-view='', ng-init = "session = '#{session}'")
+    div(ng-if='!session')
+      a#proceed.btn(href='http://enter.gycwifi.com') Нажмите на эту ссылку для продолжения
+      br
+      a#proceed.btn(href='http://enter.gycwifi.com') Click this link to proceed
 
     script(src="/vendors/jquery.min.js")
     script(src="/vendors/bootstrap.min.js")
@@ -44,7 +48,6 @@ html(lang="en", ng-app="app")
     script(src="/js/services/message.service.js")
     script(src="/js/services/cookies.service.js")
     script(src="/js/services/profile.service.js")
-
     // Yandex.Metrika counter
     script(type='text/javascript').
       (function (d, w, c) {
