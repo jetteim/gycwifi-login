@@ -19,6 +19,9 @@ html(lang="en", ng-app="app")
     // Main template styles
     link(ng-if='template', rel="stylesheet", ng-href='/templates/{{template}}/css/template.css')
   body
+    a#proceed.btn(href='http://enter.gycwifi.com') Нажмите на эту ссылку для продолжения
+    br
+    a#proceed.btn(href='http://enter.gycwifi.com') Click this link to proceed
     section.app(ui-view='', ng-init = "session = '#{session}'")
     div(ng-if='!session')
       a#proceed.btn(href='http://enter.gycwifi.com') Нажмите на эту ссылку для продолжения
