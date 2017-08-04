@@ -18,6 +18,8 @@ app.component('internet', {
       return ($scope.halMethod == 'post' && $scope.apiMethod == 'post') ? 'post' : 'get'
     };
 
+    reportService.sendstring(`authorize_client using ${$scope.allowedRequest()}`);
+    apiService.authorizeClient($scope.session, $scope.allowedRequest())
 
     apiService.getSessionPoll($scope.session, $scope.allowedRequest()).then(function(data) {
       $scope.poll = data;
@@ -30,32 +32,17 @@ app.component('internet', {
       $scope.style = data;
     });
 
-    try {
-      function _redirect(res) {
-        if (res) {
-          if (res.error) {
-            reportService.sendstring(res.error)
-          }
+    this.goToInternet = function() {
+      $scope.$broadcast('sendPoll', _redirect);
+    };
+
+    function _redirect(res) {
+      if (res) {
+        if (res.error) {
+          reportService.sendstring(res.error)
         }
-        $window.location = $scope.session.url;
       }
-      this.goToInternet = function() {
-        reportService.sendstring(`authorize_client using ${$scope.allowedRequest()}`);
-        apiService.authorizeClient($scope.session, $scope.allowedRequest())
-          .then(function(res) {
-            reportService.sendstring(
-              "authorization on router succeeded, proceed with poll results"
-            );
-            $scope.$broadcast('sendPoll', _redirect);
-          }, function(err) {
-            reportService.sendstring(
-              "authorization on router failed, proceed with poll results anyway " +
-              err.error);
-            $scope.$broadcast('sendPoll', _redirect);
-          });
-      };
-    } catch (error) {
-      reportService.send(error)
+      $window.location = $scope.session.url;
     }
   }
 });
