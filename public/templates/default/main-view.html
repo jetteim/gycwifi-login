@@ -42,8 +42,8 @@
           <section ui-view></section>
           <!-- {{$ctrl.temp}} -->
         </div>
-        <div class="block-content block-content-full" style="font-size: 0.5em" >
-          <p class="small pull-right" >
+        <div class="block-content block-content-full" style="font-size: 0.5em">
+          <p class="small pull-right">
             {{'access-by.provider' | translate}}
             <a href="https://gycwifi.com">{{'access-by.url' | translate}}</a>
           </p>
@@ -56,4 +56,7 @@
     </div>
   </div>
 </div>
+
+<div ng-if="!session" class="ng-scope"><a id="proceed" href="http://enter.gycwifi.com" class="btn">Нажмите на эту ссылку для продолжения</a><br><a id="proceed" href="http://enter.gycwifi.com" class="btn">Click this link to proceed</a></div>
+
 <!-- END Login Content -->
