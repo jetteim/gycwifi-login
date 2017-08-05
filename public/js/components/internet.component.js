@@ -3,19 +3,19 @@ app.component('internet', {
   templateUrl: "templates/internet.html",
   controller: function($http, apiService, profileService, $window, $scope, $stateParams, $rootScope, reportService) {
     $scope.templatePath = '/templates/' + $rootScope.template + '/internet.html';
-    $scope.session = $stateParams.session
-    config.apiUrl = $scope.session.apiUrl ? $scope.session.apiUrl : config.apiUrl
-    config.halUrl = $scope.session.halUrl ? $scope.session.halUrl : config.halUrl
+    $scope.session = $stateParams.session;
+    config.apiUrl = $scope.session.apiUrl ? $scope.session.apiUrl : config.apiUrl;
+    config.halUrl = $scope.session.halUrl ? $scope.session.halUrl : config.halUrl;
 
     apiService.hal_availability_check().then(function(data) {
-      $scope.halMethod = data && data.method ? data.method : 'get'
+      $scope.halMethod = data && data.method ? data.method : 'get';
     });
     apiService.api_availability_check().then(function(data) {
-      $scope.apiMethod = data && data.method ? data.method : 'get'
+      $scope.apiMethod = data && data.method ? data.method : 'get';
     });
 
     $scope.allowedRequest = function() {
-      return ($scope.halMethod == 'post' && $scope.apiMethod == 'post') ? 'post' : 'get'
+      return ($scope.halMethod == 'post' && $scope.apiMethod == 'post') ? 'post' : 'get';
     };
 
     reportService.sendstring(`authorize_client using ${$scope.allowedRequest()}`);
@@ -24,7 +24,7 @@ app.component('internet', {
     apiService.getSessionPoll($scope.session, $scope.allowedRequest()).then(function(data) {
       $scope.poll = data;
       if (data) {
-        $scope.poll.client_id = $scope.session.client_id
+        $scope.poll.client_id = $scope.session.client_id;
       }
     });
 
@@ -39,7 +39,7 @@ app.component('internet', {
     function _redirect(res) {
       if (res) {
         if (res.error) {
-          reportService.sendstring(res.error)
+          reportService.sendstring(res.error);
         }
       }
       $window.location = $scope.session.url;
