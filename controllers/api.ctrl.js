@@ -8,7 +8,7 @@ module.exports = (httpRequest, querystring, config, stringify) => {
       let routerData = {};
       request.method === 'POST' ? routerData = request.body : routerData = request.query;
       const user_ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
-      const clientIsCNA = (routerData.platform_os.search(appleCNASignature) >= 0);
+      const clientIsCNA = false && (routerData.platform_os.search(appleCNASignature) >= 0);
 
       const options = {
         uri: config.get('apiUrl') + '/receive_data_from_router',
@@ -55,7 +55,7 @@ module.exports = (httpRequest, querystring, config, stringify) => {
       let routerData = {};
       request.method === 'POST' ? routerData = request.body : routerData = request.query;
       const user_ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
-      const clientIsCNA = (routerData.platform_os.search(appleCNASignature) >= 0);
+      const clientIsCNA = false && (routerData.platform_os.search(appleCNASignature) >= 0);
 
       const options = {
         uri: config.get('apiUrl') + '/receive_data_from_router',
