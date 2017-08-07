@@ -2,6 +2,7 @@ app.component('authpending', {
   bindings: {},
   templateUrl: "templates/authpending.html",
   controller: function($scope, $rootScope, $state, $stateParams, reportService, apiService) {
+    reportService.sendstring('authpending component loaded');
     $scope.templatePath = '/templates/' + $rootScope.template + '/authpending.html';
     $scope.session = $stateParams.session;
     config.apiUrl = $scope.session.apiUrl ? $scope.session.apiUrl : config.apiUrl;
@@ -18,6 +19,7 @@ app.component('authpending', {
       return ($scope.halMethod == 'post' && $scope.apiMethod == 'post') ? 'post' : 'get';
     };
 
+    reportService.sendstring('pulling session style');
 
     apiService.getSessionStyle($scope.session, $scope.allowedRequest())
       .then(function(data) {
@@ -26,6 +28,7 @@ app.component('authpending', {
       });
 
     function performCheck() {
+      reportService.sendstring('checking pending authorization');
       if ($scope.session.sms_code) {
         apiService.verifyCode($scope.session, $scope.allowedRequest())
           .then(function(data) {
@@ -60,7 +63,7 @@ app.component('authpending', {
             }
           })
           .catch(function(e) {
-            reportService.send(JSON.stringify(e));
+            reportService.sendstring(JSON.stringify(e));
           });
       }
     }
@@ -70,6 +73,7 @@ app.component('authpending', {
     };
 
     this.notMyNumber = function() {
+      reportService.sendstring('navigating back to phone page');
       $state.go('main.phone', {
         session: $scope.session
       });

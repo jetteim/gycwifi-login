@@ -2,6 +2,7 @@ app.component('providers', {
   bindings: {},
   templateUrl: "templates/providers.html",
   controller: function($scope, $auth, $state, apiService, $stateParams, $window, profileService, reportService, $rootScope) {
+    reportService.sendstring('providers component loaded');
     $scope.session = $stateParams.session;
     config.apiUrl = $scope.session.apiUrl ? $scope.session.apiUrl : config.apiUrl;
     config.halUrl = $scope.session.halUrl ? $scope.session.halUrl : config.halUrl;

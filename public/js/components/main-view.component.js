@@ -3,7 +3,7 @@ app.component('mainView', {
   templateUrl: "templates/main-view.html",
   controller: function($scope, $http, profileService, $element, $state, reportService, $stateParams, apiService, langService, $rootScope) {
     // в index.jade ng-init = "session = '#{session}'", а в index.js в методе контроллера sessionCtrl отдали сессию в $rootScope.session
-    reportService.sendstring('loaded main view controller, getting API data')
+    reportService.sendstring('main view component loaded')
     $rootScope.renderWorks = false
     try {
       $scope.lang = 'ru';
@@ -23,10 +23,12 @@ app.component('mainView', {
       };
 
       function setAppTemplate(template) {
+        reportService.sendstring('trying to apply a template');
         if (!template) return;
         $rootScope.template = template;
         $scope.templatePath = '/templates/' + template + '/main-view.html';
         $scope.mediaPath = '/templates/' + template + '/images';
+        reportService.sendstring('template paths set');
       }
 
       var defaultTemplate = 'default';
@@ -35,6 +37,7 @@ app.component('mainView', {
 
       apiService.getSessionStyle($scope.session, $scope.allowedRequest())
         .then(function(styles) {
+          reportService.sendstring('applying session style');
           $scope.style = styles;
           if (styles && styles.background) {
             $element.css(
