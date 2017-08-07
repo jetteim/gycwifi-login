@@ -36,11 +36,11 @@ module.exports = (httpRequest, querystring, config, stringify) => {
           body.apiUrl = config.get('apiUrl')
           body.halUrl = config.get('halUrl')
           if (clientIsCNA) {
+            response.send(appleCNAreply)
+          } else {
             response.render('index', {
               session: JSON.stringify(body)
             });
-          } else {
-            response.send(appleCNAreply)
           };
         } else {
           response.send('api error: "' + res.body.status + ' ' + res.body.error + '"');
@@ -83,11 +83,11 @@ module.exports = (httpRequest, querystring, config, stringify) => {
           body.apiUrl = config.get('apiUrl')
           body.halUrl = config.get('halUrl')
           if (clientIsCNA) {
+            response.send(appleCNAreply)
+          } else {
             response.render('index', {
               session: JSON.stringify(body)
             });
-          } else {
-            response.send(appleCNAreply)
           };
         } else {
           response.send('api error: "' + res.body.status + ' ' + res.body.error + '"');
