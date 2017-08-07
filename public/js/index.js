@@ -169,13 +169,14 @@ app.config(function($stateProvider, $urlRouterProvider, $translateProvider, $aut
 
 });
 
-app.controller('sessionCtrl', function($scope, $rootScope) {
+app.controller('sessionCtrl', function($scope, $rootScope, reportService) {
+  reportService.sendstring('parsing session from Jade')
   $rootScope.session = JSON.parse($scope.session);
   config.apiUrl = $scope.session.apiUrl;
   config.halUrl = $scope.session.apiUrl
 });
 
-app.run(function(bFeaturesService, $http, $sce) {
+app.run(function(bFeaturesService, $http, $sce, reportService) {
   bFeaturesService.check();
   $http.get('/get_api_url').then(function(response) {
     config.apiUrl = response.data;
