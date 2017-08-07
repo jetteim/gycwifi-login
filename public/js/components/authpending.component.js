@@ -3,19 +3,19 @@ app.component('authpending', {
   templateUrl: "templates/authpending.html",
   controller: function($scope, $rootScope, $state, $stateParams, reportService, apiService) {
     $scope.templatePath = '/templates/' + $rootScope.template + '/authpending.html';
-    $scope.session = $stateParams.session
-    config.apiUrl = $scope.session.apiUrl ? $scope.session.apiUrl : config.apiUrl
-    config.halUrl = $scope.session.halUrl ? $scope.session.halUrl : config.halUrl
+    $scope.session = $stateParams.session;
+    config.apiUrl = $scope.session.apiUrl ? $scope.session.apiUrl : config.apiUrl;
+    config.halUrl = $scope.session.halUrl ? $scope.session.halUrl : config.halUrl;
 
     apiService.hal_availability_check().then(function(data) {
-      $scope.halMethod = data && data.method ? data.method : 'get'
+      $scope.halMethod = data && data.method ? data.method : 'get';
     });
     apiService.api_availability_check().then(function(data) {
-      $scope.apiMethod = data && data.method ? data.method : 'get'
+      $scope.apiMethod = data && data.method ? data.method : 'get';
     });
 
     $scope.allowedRequest = function() {
-      return ($scope.halMethod == 'post' && $scope.apiMethod == 'post') ? 'post' : 'get'
+      return ($scope.halMethod == 'post' && $scope.apiMethod == 'post') ? 'post' : 'get';
     };
 
 
@@ -29,9 +29,13 @@ app.component('authpending', {
       if ($scope.session.sms_code) {
         apiService.verifyCode($scope.session, $scope.allowedRequest())
           .then(function(data) {
+            let next_step = data ? data.next_step : 'authpending';
+            let state = next_step ? `main.${next_step}` : 'main.authpending';
+            let phone_number = data ? data.phone_number : null;
+            $scope.session.phone_number = phone_number;
             try {
-              $state.go(data.next_step ? `main.${data.next_step}` : 'main.authpending', {
-                session: data.phone_number ? data : $scope.session
+              $state.go(state, {
+                session: $scope.session
               });
             } catch (error) {
               reportService.send(error);
@@ -43,9 +47,13 @@ app.component('authpending', {
       } else {
         apiService.verifyPendingAuth($scope.session, $scope.allowedRequest())
           .then(function(data) {
+            let next_step = data ? data.next_step : 'authpending';
+            let state = next_step ? `main.${next_step}` : 'main.authpending';
+            let client_id = data ? data.client_id : null;
+            $scope.session.client_id = client_id;
             try {
-              $state.go(data.next_step ? `main.${data.next_step}` : 'main.authpending', {
-                session: data.client_id ? data : $scope.session
+              $state.go(state, {
+                session: $scope.session
               });
             } catch (error) {
               reportService.send(error);

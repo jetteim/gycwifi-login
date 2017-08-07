@@ -19,6 +19,10 @@ html(lang="en", ng-app="app")
     // Main template styles
     link(ng-if='template', rel="stylesheet", ng-href='/templates/{{template}}/css/template.css')
   body
+    div(ng-if='!renderWorks')
+      a#proceed.button(href='http://enter.gycwifi.com') Нажмите на эту ссылку для продолжения
+      br
+      a#proceed.button(href='http://enter.gycwifi.com') Click this link to proceed
     section.app(ui-view='', ng-init = "session = '#{session}'")
     script(src="/vendors/jquery.min.js")
     script(src="/vendors/bootstrap.min.js")

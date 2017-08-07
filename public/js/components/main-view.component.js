@@ -30,6 +30,8 @@ app.component('mainView', {
 
       var defaultTemplate = 'default';
 
+      reportService.sendstring('now loading template from location style');
+
       apiService.getSessionStyle($scope.session, $scope.allowedRequest())
         .then(function(styles) {
           $scope.style = styles;
@@ -44,14 +46,16 @@ app.component('mainView', {
         })
         .catch(function(e) {
           setAppTemplate(styles.template || defaultTemplate);
-          reportService.send(JSON.stringify(e));
+          reportService.sendstring(JSON.stringify(e));
         });
 
       $scope.changeLang = function(lang) {
         langService.setLang(lang);
         $scope.lang = lang;
-      };
-      $scope.renderWorks = true
+      }; << << << < HEAD
+      $scope.renderWorks = true === === =
+        $rootScope.renderWorks = true
+      reportService.sendstring('navigating to the next step'); >>> >>> > a76f044dfc21b96b5ff352e26c10588297bdd20c
       var next_step = $scope.session ? $scope.session.next_step || 'phone' : 'phone';
       $state.go('main.' + next_step, {
         session: $scope.session
