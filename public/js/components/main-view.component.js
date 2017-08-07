@@ -57,9 +57,12 @@ app.component('mainView', {
         langService.setLang(lang);
         $scope.lang = lang;
       };
-      $rootScope.renderWorks = true
+      $rootScope.renderWorks = true;
+
       reportService.sendstring('navigating to the next step');
+
       var next_step = $scope.session ? $scope.session.next_step || 'phone' : 'phone';
+
       $state.go('main.' + next_step, {
         session: $scope.session
       });
