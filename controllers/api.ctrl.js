@@ -40,8 +40,8 @@ module.exports = (httpRequest, querystring, config, stringify) => {
           } else {
             response.render('index', {
               session: JSON.stringify(body)
-            });
-          };
+            })
+          }
         } else {
           response.send('api error: "' + res.body.status + ' ' + res.body.error + '"');
         }
@@ -87,8 +87,8 @@ module.exports = (httpRequest, querystring, config, stringify) => {
           } else {
             response.render('index', {
               session: JSON.stringify(body)
-            });
-          };
+            })
+          }
         } else {
           response.send('api error: "' + res.body.status + ' ' + res.body.error + '"');
         }
@@ -147,11 +147,4 @@ module.exports = (httpRequest, querystring, config, stringify) => {
     //   });
 
   };
-};
-d >
-  //     //             <body><main>${linkbtn}${script}</main></body></html>`;
-  //     response.send(respondhtml);
-  //   });
-
-};
 };
