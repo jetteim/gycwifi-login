@@ -22,7 +22,7 @@ app.factory('apiService', function($http, reportService) {
       enterMethod('query');
       return $http.get(config.apiUrl + '/auth/password', query).then(
         function(data) {
-          exitMethod(`query, returining ${data.data}`)
+          exitMethod(`query, returining ${JSON.stringify(data.data)}`)
           return data.data;
         }).catch(function(e) {
         reportService.sendstring(e);
@@ -55,7 +55,7 @@ app.factory('apiService', function($http, reportService) {
       enterMethod('without')
       return $http(req(config.apiUrl + '/auth/without_social', session, method))
         .then(function(data) {
-          exitMethod(`without, returining ${data.data}`)
+          exitMethod(`without, returining ${JSON.stringify(data.data)}`)
           return data.data;
         }).catch(function(e) {
           reportService.sendstring(e);
@@ -67,7 +67,7 @@ app.factory('apiService', function($http, reportService) {
       enterMethod('voucher');
       return $http(req(config.apiUrl + '/auth/voucher', session, method))
         .then(function(data) {
-          exitMethod(`voucher, returining ${data.data}`)
+          exitMethod(`voucher, returining ${JSON.stringify(data.data)}`)
           return data.data;
         }).catch(function(e) {
           reportService.sendstring(e);
@@ -80,7 +80,7 @@ app.factory('apiService', function($http, reportService) {
       return $http(req(config.apiUrl + '/send_poll_results', query, method))
         .then(
           function(data) {
-            exitMethod(`sendPoll, returining ${data.data}`)
+            exitMethod(`sendPoll, returining ${JSON.stringify(data.data)}`)
             return data.data;
             // return data.data.next_step ? data.data : null;
           })
@@ -95,7 +95,7 @@ app.factory('apiService', function($http, reportService) {
       return $http(req(config.apiUrl + '/check_verify_code', query, method))
         .then(
           function(data) {
-            exitMethod(`sendVerifyCode, returining ${data.data}`)
+            exitMethod(`sendVerifyCode, returining ${JSON.stringify(data.data)}`)
             return data.data;
             // return data.data.next_step ? data.data : null;
           })
@@ -109,7 +109,7 @@ app.factory('apiService', function($http, reportService) {
       enterMethod('authorizeClient');
       return $http(req(config.halUrl + '/authorize_client', query, method))
         .then(function(data) {
-          exitMethod(`authorizeClient, returining ${data.data}`)
+          exitMethod(`authorizeClient, returining ${JSON.stringify(data.data)}`)
           return data.data;
           // return data.data.next_step ? data.data : null;
         })
@@ -123,7 +123,7 @@ app.factory('apiService', function($http, reportService) {
       enterMethod('verifyCode');
       return $http(req(config.apiUrl + '/verify_code', data, method))
         .then(function(response) {
-          exitMethod(`verifyCode, returining ${response.data}`)
+          exitMethod(`verifyCode, returining ${JSON.stringify(response.data)}`)
           return response.data;
         })
         .catch(function(e) {
@@ -136,7 +136,7 @@ app.factory('apiService', function($http, reportService) {
       enterMethod('getSessionStyle');
       return $http(req(config.apiUrl + '/login_session_style', data, method))
         .then(function(response) {
-          exitMethod(`getSessionStyle, returining ${response.data}`)
+          exitMethod(`getSessionStyle, returining ${JSON.stringify(response.data)}`)
           return response.data;
         })
         .catch(function(e) {
@@ -150,7 +150,7 @@ app.factory('apiService', function($http, reportService) {
       enterMethod('getSessionRouter');
       return $http(req(config.apiUrl + '/login_session_router', data, method))
         .then(function(response) {
-          exitMethod(`getSessionRouter, returining ${response.data}`)
+          exitMethod(`getSessionRouter, returining ${JSON.stringify(response.data)}`)
           return response.data;
         })
         .catch(function(e) {
@@ -164,7 +164,7 @@ app.factory('apiService', function($http, reportService) {
       enterMethod('getSessionCSS');
       return $http(req(config.apiUrl + '/login_session_css', data, method))
         .then(function(response) {
-          exitMethod(`getSessionCSS, returining ${response.data}`)
+          exitMethod(`getSessionCSS, returining ${JSON.stringify(response.data)}`)
           return response.data;
         })
         .catch(function(e) {
@@ -178,7 +178,7 @@ app.factory('apiService', function($http, reportService) {
       enterMethod('getSessionTargeting');
       return $http(req(config.apiUrl + '/login_session_targeting', data, method))
         .then(function(response) {
-          exitMethod(`getSessionTargeting, returining ${response.data}`)
+          exitMethod(`getSessionTargeting, returining ${JSON.stringify(response.data)}`)
           return response.data;
         })
         .catch(function(e) {
@@ -192,7 +192,7 @@ app.factory('apiService', function($http, reportService) {
       enterMethod('getSessionPoll');
       return $http(req(config.apiUrl + '/login_session_poll', data, method))
         .then(function(response) {
-          exitMethod(`getSessionPoll, returining ${response.data}`)
+          exitMethod(`getSessionPoll, returining ${JSON.stringify(response.data)}`)
           return response.data;
         })
         .catch(function(e) {
@@ -206,7 +206,7 @@ app.factory('apiService', function($http, reportService) {
       enterMethod('getSessionClient');
       return $http(req(config.apiUrl + '/login_session_client', data, method))
         .then(function(response) {
-          exitMethod(`getSessionClient, returining ${response.data}`)
+          exitMethod(`getSessionClient, returining ${JSON.stringify(response.data)}`)
           return response.data;
         })
         .catch(function(e) {
@@ -220,7 +220,7 @@ app.factory('apiService', function($http, reportService) {
       enterMethod('sendPendingAuth');
       return $http(req(config.apiUrl + '/pending_call_auth', data, method))
         .then(function(response) {
-          exitMethod(`sendPendingAuth, returining ${response.data}`)
+          exitMethod(`sendPendingAuth, returining ${JSON.stringify(response.data)}`)
           return response.data;
         })
         .catch(function(e) {
@@ -234,7 +234,7 @@ app.factory('apiService', function($http, reportService) {
       enterMethod('verifyPendingAuth');
       return $http(req(config.apiUrl + '/check_client_number', data, method))
         .then(function(response) {
-          exitMethod(`verifyPendingAuth, returining ${response.data}`)
+          exitMethod(`verifyPendingAuth, returining ${JSON.stringify(response.data)}`)
           return response.data;
         })
         .catch(function(e) {

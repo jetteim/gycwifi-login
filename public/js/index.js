@@ -172,6 +172,7 @@ app.config(function($stateProvider, $urlRouterProvider, $translateProvider, $aut
 app.controller('sessionCtrl', function($scope, $rootScope, reportService) {
   reportService.sendstring('parsing session from Jade')
   $rootScope.session = JSON.parse($scope.session);
+  reportService.sendstring('logi session: ' + $rootScope.session)
   config.apiUrl = $scope.session.apiUrl;
   config.halUrl = $scope.session.apiUrl
 });
