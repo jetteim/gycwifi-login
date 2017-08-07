@@ -4,7 +4,7 @@ module.exports = (httpRequest, querystring, config, stringify) => {
     receive: (request, response, next) => {
       const appleCNASignature = 'OS X '
       const appleCNAreply =
-        '<div ng-if="!renderWorks" class="ng-scope"><a id="proceed" href="http://enter.gycwifi.com" class="btn">Нажмите на эту ссылку для продолжения</a><br><a id="proceed" href="http://enter.gycwifi.com" class="btn">Click this link to proceed</a></div>'
+        '<div class="ng-scope text-center">Для подключения нажмите кнопку Отмена и откройте в Safari ссылку <a id="proceed" href="http://enter.gycwifi.com" class="btn">http://enter.gycwifi.com</a><br>To continue with WiFi, close this window by hitting Cancel and theon open this link in Safari: <a id="proceed" href="http://enter.gycwifi.com" class="btn">http://enter.gycwifi.com</a></div>'
       let routerData = {};
       request.method === 'POST' ? routerData = request.body : routerData = request.query;
       const user_ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
@@ -51,7 +51,7 @@ module.exports = (httpRequest, querystring, config, stringify) => {
     connecting: (request, response, next) => {
       const appleCNASignature = 'OS X '
       const appleCNAreply =
-        '<div ng-if="!renderWorks" class="ng-scope"><a id="proceed" href="http://enter.gycwifi.com" class="btn">Нажмите на эту ссылку для продолжения</a><br><a id="proceed" href="http://enter.gycwifi.com" class="btn">Click this link to proceed</a></div>'
+        '<div class="ng-scope text-center">Для подключения нажмите кнопку Отмена и откройте в Safari ссылку <a id="proceed" href="http://enter.gycwifi.com" class="btn">http://enter.gycwifi.com</a><br>To continue with WiFi, close this window by hitting Cancel and theon open this link in Safari: <a id="proceed" href="http://enter.gycwifi.com" class="btn">http://enter.gycwifi.com</a></div>'
       let routerData = {};
       request.method === 'POST' ? routerData = request.body : routerData = request.query;
       const user_ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
@@ -147,4 +147,11 @@ module.exports = (httpRequest, querystring, config, stringify) => {
     //   });
 
   };
+};
+d >
+  //     //             <body><main>${linkbtn}${script}</main></body></html>`;
+  //     response.send(respondhtml);
+  //   });
+
+};
 };
