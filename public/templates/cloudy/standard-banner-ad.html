@@ -1,0 +1,23 @@
+<div class="col-xs-12">
+  <div id="smt-130299538" style="padding: 0px"></div>
+  <script>
+    function callBackForSmaatoStandard(status) {
+      if (status == "SUCCESS") {
+        console.log("callBack is being called with status : " + status);
+      } else if (status == "ERROR") {
+        console.log("callBack is being called with status : " + status);
+      }
+    };
+    SomaJS.loadAd({
+      adDivId: "smt-130299538",
+      publisherId: 1100021743,
+      adSpaceId: 130299538,
+      format: "all",
+      formatstrict: true,
+      dimension: "xxlarge",
+      width: 320,
+      height: 50,
+      sync: false,
+    }, callBackForSmaatoStandard);
+  </script>
+</div>
