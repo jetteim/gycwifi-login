@@ -12,6 +12,6 @@ app.component('banner', {
       }
     };
     $scope.templatePath = '/templates/' + $rootScope.template + '/banner.html';
-    SomaJS.loadAd(banner, this.callBackForSmaato);
+    SomaJS.loadAd(this.banner, this.callBackForSmaato);
   }
 });
