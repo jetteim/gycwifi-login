@@ -8,6 +8,30 @@
         <poll poll="poll"></poll>
       </div>
     </div>
+    <div class="col-xs-12">
+      <div id="smt-130299538" style="padding: 0px"></div>
+      <script type="text/javascript" src="https://soma-assets.smaato.net/js/smaatoAdTag.js"></script>
+      <script>
+        function callBackForSmaato(status) {
+          if (status == "SUCCESS") {
+            console.log("callBack is being called with status : " + status);
+          } else if (status == "ERROR") {
+            console.log("callBack is being called with status : " + status);
+          }
+        };
+        SomaJS.loadAd({
+          adDivId: "smt-130299538",
+          publisherId: 1100021743,
+          adSpaceId: 130299538,
+          format: "all",
+          formatstrict: true,
+          dimension: "large",
+          width: 216,
+          height: 36,
+          sync: false,
+        }, callBackForSmaato);
+      </script>
+    </div>
   </div>
   <div class="form-group">
     <div class="col-xs-12 text-center">
