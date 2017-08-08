@@ -2,6 +2,7 @@ app.component('internet', {
   bindings: {},
   templateUrl: "templates/internet.html",
   controller: function($http, apiService, profileService, $window, $scope, $stateParams, $rootScope, reportService) {
+    reportService.sendstring('internet component loaded');
     $scope.templatePath = '/templates/' + $rootScope.template + '/internet.html';
     $scope.session = $stateParams.session;
     config.apiUrl = $scope.session.apiUrl ? $scope.session.apiUrl : config.apiUrl;

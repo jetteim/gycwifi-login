@@ -7,7 +7,7 @@ module.exports = (fs) => {
       const date = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
       console.re.log(date + " : " + message + " : " + bulk)
       fs.appendFileSync('client.log', date + " : " + message + "\n");
-      response.send(JSON.stringify(request.body));
+      response.send(bulk);
     }
   };
 };

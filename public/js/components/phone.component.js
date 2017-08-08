@@ -2,6 +2,7 @@ app.component('phone', {
   bindings: {},
   templateUrl: "templates/phone.html",
   controller: function($scope, $http, $state, reportService, $stateParams, apiService, $rootScope) {
+    reportService.sendstring('phone component loaded');
     $scope.templatePath = '/templates/' + $rootScope.template + '/phone.html';
     $scope.session = $stateParams.session;
     config.apiUrl = $scope.session.apiUrl ? $scope.session.apiUrl : config.apiUrl;
@@ -21,6 +22,7 @@ app.component('phone', {
 
 
     apiService.getSessionStyle($scope.session, $scope.allowedRequest()).then(function(data) {
+      reportService.sendstring('applying session style');
       $scope.style = data;
     });
 
