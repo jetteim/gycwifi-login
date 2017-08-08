@@ -3,7 +3,7 @@ app.component('video-banner-ad', {
   templateUrl: "templates/video-banner-ad.html",
   controller: function($http, $scope, $rootScope, apiService) {
     $scope.templatePath = '/templates/' + $rootScope.template + '/video-banner-ad.html';
-    this.targeting = {
+    this.adRequest = {
       adDivId: "smt-130299540",
       publisherId: 1100021743,
       adSpaceId: 130299540,

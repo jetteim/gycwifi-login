@@ -1,25 +1,13 @@
-<div class="row">
-  <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-    <div id="smt-130299540" style="padding: 0px"></div>
-    <script>
-      function callBackForSmaatoVideo(status) {
-        if (status == "SUCCESS") {
-          console.log("callBack is being called with status : " + status);
-        } else if (status == "ERROR") {
-          console.log("callBack is being called with status : " + status);
-        }
-      };
-      SomaJS.loadAd({
-        adDivId: "smt-130299540",
-        publisherId: 1100021743,
-        adSpaceId: 130299540,
-        format: "video",
-        formatstrict: true,
-        dimension: "large",
-        width: 216,
-        height: 36,
-        sync: false,
-      }, callBackForSmaatoVideo);
-    </script>
-  </div>
+<div class="col-xs-12">
+  <div id="{{ $ctrl.adRequest.adDivId }}" style="padding: 0px"></div>
+  <script>
+    function callBackForSmaatoStandard(status) {
+      if (status == "SUCCESS") {
+        console.log("callBack is being called with status : " + status);
+      } else if (status == "ERROR") {
+        console.log("callBack is being called with status : " + status);
+      }
+    };
+    SomaJS.loadAd($ctrl.adRequest, callBackForSmaatoStandard);
+  </script>
 </div>
