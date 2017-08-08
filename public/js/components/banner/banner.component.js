@@ -3,15 +3,12 @@ app.component('banner', {
     banner: '<'
   },
   templateUrl: "templates/banner.html",
-  controller: function($http, $scope, $rootScope, apiService) {
-    this.callBackForSmaato = function(status) {
-      if (status == "SUCCESS") {
-        console.log("callBack is being called with status : " + status);
-      } else if (status == "ERROR") {
-        console.log("callBack is being called with status : " + status);
-      }
-    };
+  controller: function($http, $scope, $rootScope, apiService, reportService) {
     $scope.templatePath = '/templates/' + $rootScope.template + '/banner.html';
+    this.callBackForSmaato = function(status) {
+      reportService.sendstring(`Smaato loadAd() result: ${status}`)
+    };
+    //TODO: получать параметры баннера от API
     SomaJS.loadAd(this.banner, this.callBackForSmaato);
   }
 });

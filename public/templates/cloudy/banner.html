@@ -1,11 +1,1 @@
 <div id="{{ $ctrl.banner.adDivId }}" style="padding: 0px"></div>
-<script>
-  function callBackForSmaato(status) {
-    if (status == "SUCCESS") {
-      console.log("callBack is being called with status : " + status);
-    } else if (status == "ERROR") {
-      console.log("callBack is being called with status : " + status);
-    }
-  };
-  SomaJS.loadAd($ctrl.banner, callBackForSmaato);
-</script>
