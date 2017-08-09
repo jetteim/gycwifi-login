@@ -3,6 +3,18 @@ app.component('internet', {
   templateUrl: "templates/internet.html",
   controller: function($http, apiService, profileService, $window, $scope, $stateParams, $rootScope, reportService) {
     reportService.sendstring('internet component loaded');
+    //TODO: получать параметры баннера от API
+    $scope.banner = {
+      adDivId: "smt-130299538",
+      publisherId: 1100021743,
+      adSpaceId: 130299538,
+      format: "all",
+      formatstrict: true,
+      dimension: "xlarge",
+      width: 300,
+      height: 50,
+      sync: false
+    }
     $scope.templatePath = '/templates/' + $rootScope.template + '/internet.html';
     $scope.session = $stateParams.session;
     config.apiUrl = $scope.session.apiUrl ? $scope.session.apiUrl : config.apiUrl;

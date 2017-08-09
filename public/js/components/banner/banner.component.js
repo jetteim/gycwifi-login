@@ -8,7 +8,6 @@ app.component('banner', {
     this.callBackForSmaato = function(status) {
       reportService.sendstring(`SomaJS.loadAd() result: ${status}`)
     };
-    //TODO: получать параметры баннера от API
     SomaJS.loadAd(this.banner, this.callBackForSmaato);
   }
 });
