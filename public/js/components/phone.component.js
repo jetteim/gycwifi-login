@@ -19,7 +19,9 @@ app.component('phone', {
       return ($scope.halMethod == 'post' && $scope.apiMethod == 'post') ? 'post' : 'get';
     };
 
-
+    apiService.getSessionTargeting($scope.session, $scope.allowedRequest()).then(function(data) {
+      $scope.banner = data
+    });
 
     apiService.getSessionStyle($scope.session, $scope.allowedRequest()).then(function(data) {
       reportService.sendstring('applying session style');

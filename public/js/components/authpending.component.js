@@ -19,6 +19,10 @@ app.component('authpending', {
       return ($scope.halMethod == 'post' && $scope.apiMethod == 'post') ? 'post' : 'get';
     };
 
+    apiService.getSessionTargeting($scope.session, $scope.allowedRequest()).then(function(data) {
+      $scope.banner = data
+    });
+
     reportService.sendstring('pulling session style');
 
     apiService.getSessionStyle($scope.session, $scope.allowedRequest())
