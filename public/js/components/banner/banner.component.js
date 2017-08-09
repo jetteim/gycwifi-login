@@ -1,6 +1,6 @@
 app.component('banner', {
   bindings: {
-    banner: '<'
+    session: '<'
   },
   templateUrl: "templates/banner.html",
   controller: function($http, $scope, $rootScope, apiService, reportService) {
@@ -8,7 +8,7 @@ app.component('banner', {
     this.callBackForSmaato = function(status) {
       reportService.sendstring(`SomaJS.loadAd() result: ${status}`)
     };
-    apiService.getSessionTargeting(banner, 'get').then(function(data) {
+    apiService.getSessionTargeting(this.session, 'get').then(function(data) {
       SomaJS.loadAd(data, this.callBackForSmaato);
     });
 
