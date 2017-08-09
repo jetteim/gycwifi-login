@@ -8,6 +8,9 @@ app.component('banner', {
     this.callBackForSmaato = function(status) {
       reportService.sendstring(`SomaJS.loadAd() result: ${status}`)
     };
-    SomaJS.loadAd(this.banner, this.callBackForSmaato);
+    apiService.getSessionTargeting(banner, 'get').then(function(data) {
+      SomaJS.loadAd(data, this.callBackForSmaato);
+    });
+
   }
 });

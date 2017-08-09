@@ -24,10 +24,6 @@ app.component('internet', {
 
     apiService.authorizeClient($scope.session, $scope.allowedRequest());
 
-    apiService.getSessionTargeting($scope.session, $scope.allowedRequest()).then(function(data) {
-      $scope.banner = data
-    });
-
     apiService.getSessionPoll($scope.session, $scope.allowedRequest()).then(function(data) {
       $scope.poll = data;
       if (data) {
