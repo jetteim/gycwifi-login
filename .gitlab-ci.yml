@@ -10,9 +10,14 @@ staging:
     - staging
   only:
     - develop
-    - /^bugfix.*$/
-    - /^hotfix.*$/
-    - /^release.*$/
+
+demo:
+  <<: *deploy_task
+  environment: demo
+  tags:
+    - demo
+  only:
+    - demo
 
 production:
   <<: *deploy_task
@@ -20,11 +25,4 @@ production:
   tags:
     - production
   only:
-    - master
-    - tags
-  except:
-    - develop
-    - /^feature.*$/
-    - /^bugfix.*$/
-    - /^hotfix.*$/
-    - /^release.*$/
+    - production
