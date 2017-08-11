@@ -68,8 +68,8 @@ app.config(function($stateProvider, $urlRouterProvider, $translateProvider, $aut
   // console.re.log(`starting login angular app, halUrl: ${config.halUrl} apiUrl: ${config.apiUrl}`)
   getUrlConfig = function() {
     return {
-      apiUrl: 'https://api.gycwifi.com',
-      halUrl: 'https://hal.gycwifi.com'
+      apiUrl: 'http://api.gycwifi.com',
+      halUrl: 'http://hal.gycwifi.com'
     }
   }
   var config = config ? config : getUrlConfig()
