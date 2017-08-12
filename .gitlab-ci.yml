@@ -1,7 +1,7 @@
 .deploy_task: &deploy_task
   stage: deploy
   script:
-    - sudo chef-client --local-mode --runlist 'recipe[gyc_wifi_server::app_login]' --logfile /var/log/chef-client --json-attributes /home/deploy/chef_config.json
+    - sudo chef-client --runlist 'recipe[gyc_wifi_server::app_login]' --config /home/deploy/client.rb
 
 staging:
   <<: *deploy_task
@@ -18,6 +18,14 @@ demo:
     - demo
   only:
     - demo
+
+vagrant:
+  <<: *deploy_task
+  environment: vagrant
+  tags:
+    - vagrant
+  only:
+    - vagrant
 
 production:
   <<: *deploy_task
