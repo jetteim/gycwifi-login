@@ -494,6 +494,19 @@ app.controller('HeaderCtrl', ['$scope', '$window',
   }
 ]);
 
+app.controller('SidebarCtrl', ['$scope', '$window', '$location',
+  function($scope, $localStorage, $window, $location) {
+    // When view content is loaded
+    $scope.$on('$includeContentLoaded', function() {
+      // Handle Scrolling
+      $scope.helpers.uiHandleScroll();
+
+      // Get current path to use it for adding active classes to our submenus
+      $scope.path = $location.path();
+    });
+  }
+]);
+
 app.run(function(bFeaturesService, $http, $sce, reportService) {
   bFeaturesService.check();
   $http.get('/get_api_url').then(function(response) {
