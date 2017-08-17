@@ -1,38 +1,30 @@
 <div class="content overflow-hidden">
-  <nav id="sidebar">
-    <!-- Sidebar Scroll Container -->
-    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 1021px;">
-      <div id="sidebar-scroll" style="overflow: hidden; width: auto; height: 1021px;">
-        <!-- Sidebar Content -->
-        <!-- Adding .sidebar-mini-hide to an element will hide it when the sidebar is in mini mode -->
-        <div class="sidebar-content">
-          <!-- Side Header -->
-          <div class="side-header side-content bg-white-op">
-            <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
-            <button class="btn btn-link text-gray pull-right hidden-md hidden-lg" type="button" data-ng-click="oneui.settings.sidebarOpenXs = false" data-js-blur>
-                <i class="fa fa-times"></i>
-            </button>
-            <!-- Themes functionality initialized in App() -> uiHandleTheme() -->
-          </div>
-          <!-- END Side Header -->
-
-          <!-- Side Content -->
-          <div class="side-content side-content-full">
-            <ul class="nav-main" data-js-main-nav>
-              <li ng-repeat="menu_item in style.login_menu_items">
-                <a href="{{ menu_item.url ? menu_item.url : style.url }}"><span class="sidebar-mini-hide">{{ (lang == 'ru') ? menu_item.title_ru : menu_item.title_en }}</span></a>
-              </li>
-            </ul>
-          </div>
-          <!-- END Side Content -->
-        </div>
-        <!-- Sidebar Content -->
+  <div id="sidebar-scroll" style="overflow: hidden; width: auto; height: 1021px;">
+    <!-- Sidebar Content -->
+    <!-- Adding .sidebar-mini-hide to an element will hide it when the sidebar is in mini mode -->
+    <div class="sidebar-content">
+      <!-- Side Header -->
+      <div class="side-header side-content bg-white-op">
+        <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+        <button class="btn btn-link text-gray pull-right hidden-md hidden-lg" type="button" data-ng-click="oneui.settings.sidebarOpenXs = false" data-js-blur>
+            <i class="fa fa-times"></i>
+        </button>
+        <!-- Themes functionality initialized in App() -> uiHandleTheme() -->
       </div>
-      <div class="slimScrollBar" style="background: rgb(255, 255, 255); width: 5px; position: absolute; top: 0px; opacity: 0.35; display: none; border-radius: 7px; z-index: 99; right: 2px; height: 1021px;"></div>
-      <div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 1; z-index: 90; right: 2px;"></div>
+      <!-- END Side Header -->
+
+      <!-- Side Content -->
+      <div class="side-content side-content-full">
+        <ul class="nav-main" data-js-main-nav>
+          <li ng-repeat="menu_item in style.login_menu_items">
+            <a href="{{ menu_item.url ? menu_item.url : style.url }}"><span class="sidebar-mini-hide">{{ (lang == 'ru') ? menu_item.title_ru : menu_item.title_en }}</span></a>
+          </li>
+        </ul>
+      </div>
+      <!-- END Side Content -->
     </div>
-    <!-- END Sidebar Scroll Container -->
-  </nav>
+    <!-- Sidebar Content -->
+  </div>
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
       <!-- Login Block -->
