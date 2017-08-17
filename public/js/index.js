@@ -484,8 +484,8 @@ app.factory('uiHelpers', function() {
   };
 });
 
-app.controller('HeaderCtrl', ['$scope', '$localStorage', '$window',
-  function($scope, $localStorage, $window) {
+app.controller('HeaderCtrl', ['$scope', '$window',
+  function($scope, $window) {
     // When view content is loaded
     $scope.$on('$includeContentLoaded', function() {
       // Transparent header functionality
