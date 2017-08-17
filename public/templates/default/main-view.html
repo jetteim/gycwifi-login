@@ -11,8 +11,8 @@
             <i class="fa fa-times">
             </i>
           </button>
-          <a class="h5 text-white" href="{{ style.url }}">
-            {{ style.title }}
+          <a class="h5 text-white" href="{{ style.url || 'https://gycwifi.com' }}">
+            <span class="h4 font-w600 sidebar-mini-hide"> {{ style.title }} </span>
           </a>
         </div>
         <!-- END Side Header -->
@@ -21,7 +21,7 @@
         <div class="side-content side-content-full">
           <ul class="nav-main" data-js-main-nav>
             <li ng-repeat="menu_item in style.login_menu_items">
-              <a href="{{ menu_item.url ? menu_item.url : style.url }}"><span class="sidebar-mini-hide">{{ (lang == 'ru') ? menu_item.title_ru : menu_item.title_en }}</span></a>
+              <a href="{{ menu_item.url || style.url || 'https://gycwifi.com' }}"><span class="sidebar-mini-hide">{{ (lang == 'ru') ? menu_item.title_ru : menu_item.title_en }}</span></a>
             </li>
           </ul>
         </div>
