@@ -1,43 +1,43 @@
+<nav id="sidebar">
+  <div id="sidebar-scroll">
+    <!-- Sidebar Content -->
+    <!-- Adding .sidebar-mini-hide to an element will hide it when the sidebar is in mini mode -->
+    <div class="sidebar-content" ng-click="$ctrl.closeSideBar()">
+      <!-- Side Header -->
+      <!-- Side Content -->
+      <div class="side-content side-content-full">
+          <button class="btn btn-link text-gray pull-right hidden-md hidden-lg" type="button" data-toggle="layout" data-action="sidebar_close" data-js-blur>
+            <i class="fa fa-times">
+            </i>
+          </button>
+          <a class="h5 text-white" href="{{ style.url || 'https://gycwifi.com' }}">
+            <span class="h4 font-w600 sidebar-mini-hide"> {{ style.title }} </span>
+          </a>
+        <ul class="nav-main" data-js-main-nav>
+          <li ng-repeat="menu_item in style.login_menu_items">
+            <a href="{{ menu_item.url || style.url || 'https://gycwifi.com' }}"><span class="sidebar-mini-hide">{{ (lang == 'ru') ? menu_item.title_ru : menu_item.title_en }}</span></a>
+          </li>
+        </ul>
+      </div>
+      <!-- END Side Content -->
+    </div>
+    <!-- Sidebar Content -->
+  </div>
+</nav>
+<header class="content-mini content-mini-full form-login_color">
+  <ul class="nav-header pull-left">
+    <li class="hidden-md hidden-lg">
+      <button class="btn btn-default" type="button" data-toggle="layout", data-action="sidebar_toggle">
+            <i class="fa fa-navicon"></i>
+        </button>
+    </li>
+  </ul>
+</header>
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
     <!-- Login Block -->
     <div class="uv-form form-login block block-themed animated fadeIn">
       <div class="uv-form-title-wrap block-header form-login_color">
-        <nav id="sidebar">
-          <div id="sidebar-scroll">
-            <!-- Sidebar Content -->
-            <!-- Adding .sidebar-mini-hide to an element will hide it when the sidebar is in mini mode -->
-            <div class="sidebar-content" ng-click="$ctrl.closeSideBar()">
-              <!-- Side Header -->
-              <!-- Side Content -->
-              <div class="side-content side-content-full">
-                  <button class="btn btn-link text-gray pull-right hidden-md hidden-lg" type="button" data-toggle="layout" data-action="sidebar_close" data-js-blur>
-                    <i class="fa fa-times">
-                    </i>
-                  </button>
-                  <a class="h5 text-white" href="{{ style.url || 'https://gycwifi.com' }}">
-                    <span class="h4 font-w600 sidebar-mini-hide"> {{ style.title }} </span>
-                  </a>
-                <ul class="nav-main" data-js-main-nav>
-                  <li ng-repeat="menu_item in style.login_menu_items">
-                    <a href="{{ menu_item.url || style.url || 'https://gycwifi.com' }}"><span class="sidebar-mini-hide">{{ (lang == 'ru') ? menu_item.title_ru : menu_item.title_en }}</span></a>
-                  </li>
-                </ul>
-              </div>
-              <!-- END Side Content -->
-            </div>
-            <!-- Sidebar Content -->
-          </div>
-        </nav>
-        <header class="content-mini content-mini-full form-login_color">
-          <ul class="nav-header pull-left">
-            <li class="hidden-md hidden-lg">
-              <button class="btn btn-default" type="button" data-toggle="layout", data-action="sidebar_toggle">
-                    <i class="fa fa-navicon"></i>
-                </button>
-            </li>
-          </ul>
-        </header>
         <ul class="block-options">
           <li class="btn-group">
             <button data-toggle="dropdown" type="button" class="btn btn-link text-gray dropdown-toggle">
