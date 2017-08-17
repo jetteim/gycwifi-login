@@ -1,8 +1,10 @@
 app.component('mainView', {
   bindings: {},
   templateUrl: "templates/main-view.html",
-  controller: function($scope, $http, profileService, $element, $state, reportService, $stateParams, apiService, langService, $rootScope, pluginsService) {
+  controller: function($scope, $http, profileService, $element, $state, reportService, $stateParams, apiService, langService, $rootScope, pluginsService, $timeout) {
     // в index.jade ng-init = "session = '#{session}'", а в index.js в методе контроллера sessionCtrl отдали сессию в $rootScope.session
+
+    this.$timeout(this.pluginsService.initUi, 0);
 
     this.closeSideBar = function() {
       pluginsService.uiAction('sidebar_close')
