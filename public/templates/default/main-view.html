@@ -7,19 +7,17 @@
           <div id="sidebar-scroll">
             <!-- Sidebar Content -->
             <!-- Adding .sidebar-mini-hide to an element will hide it when the sidebar is in mini mode -->
-            <div class="sidebar-content">
+            <div class="sidebar-content" ng-click="$ctrl.closeSideBar()">
               <!-- Side Header -->
               <!-- Side Content -->
               <div class="side-content side-content-full">
-                <div class="col-xs-12>">
-                  <button class="btn btn-link text-gray pull-right hidden-md hidden-lg" type="button" data-ng-click="oneui.settings.sidebarOpenXs = false" data-js-blur>
+                  <button class="btn btn-link text-gray pull-right hidden-md hidden-lg" type="button" data-toggle="layout" data-action="sidebar_close" data-js-blur>
                     <i class="fa fa-times">
                     </i>
                   </button>
                   <a class="h5 text-white" href="{{ style.url || 'https://gycwifi.com' }}">
                     <span class="h4 font-w600 sidebar-mini-hide"> {{ style.title }} </span>
                   </a>
-                </div>
                 <ul class="nav-main" data-js-main-nav>
                   <li ng-repeat="menu_item in style.login_menu_items">
                     <a href="{{ menu_item.url || style.url || 'https://gycwifi.com' }}"><span class="sidebar-mini-hide">{{ (lang == 'ru') ? menu_item.title_ru : menu_item.title_en }}</span></a>
@@ -34,7 +32,7 @@
         <header class="content-mini content-mini-full form-login_color">
           <ul class="nav-header pull-left">
             <li class="hidden-md hidden-lg">
-              <button class="btn btn-default" type="button" data-ng-click="oneui.settings.sidebarOpenXs = ! oneui.settings.sidebarOpenXs" data-js-blur>
+              <button class="btn btn-default" type="button" data-toggle="layout", data-action="sidebar_toggle">
                     <i class="fa fa-navicon"></i>
                 </button>
             </li>
