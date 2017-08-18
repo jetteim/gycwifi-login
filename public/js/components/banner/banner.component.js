@@ -3,7 +3,7 @@ app.component('banner', {
     session: '<'
   },
   templateUrl: "templates/banner.html",
-  controller: function($http, $scope, $rootScope, apiService, reportService) {
+  controller: function($http, $scope, $rootScope, apiService, reportService, $timeout) {
     $scope.templatePath = '/templates/' + $rootScope.template + '/banner.html';
     var self = this;
     apiService.getSessionTargeting(this.session, 'get').then(function(data) {
@@ -11,7 +11,7 @@ app.component('banner', {
       this.callBackForSmaato = function(status) {
         reportService.sendstring(`SomaJS.loadAd() result: ${status}`)
       };
-      SomaJS.loadAd(data, this.callBackForSmaato);
+      $timeout(SomaJS.loadAd(data, this.callBackForSmaato), 1);
     });
 
   }
