@@ -12,12 +12,11 @@ app.component('banner', {
     });
 
     this.callBackForSmaato = function(status) {
-      reportService.sendstring(`SomaJS.loadAd() result: ${status}`)
+      reportService.sendstring(`SomaJS.loadAd() result: ${status}`);
     };
 
     this.load_ad = function() {
-      SomaJS.loadAd(self.banner, self.callBackForSmaato)
-    }
-
+      SomaJS.loadAd(self.banner, self.callBackForSmaato);
+    };
   }
 });
