@@ -7,8 +7,13 @@ app.component('mainView', {
     // this.pluginsService = pluginsService;
     // var self = this;
 
+    this.init = function() {
+      pluginsService.initUi();
+      pluginsService.uiAction('sidebar_close')
+    };
+
     this.initUI = function() {
-      $timeout(self.pluginsService.initUi(), 0);
+      $timeout(this.init(), 0)
     }
 
     this.closeSideBar = function() {
