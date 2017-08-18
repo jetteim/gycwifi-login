@@ -29,7 +29,7 @@
   "phone-page": {
     "enter-phone-number": "Please enter your phone number",
     "law": "We need you to confirm your identity in accordance with the law",
-    "send": "Proceed",
+    "send": "Proceed"
   },
   "phone-pending": {
     "authorize-by-call1": "Please make call from your phone {{phoneNumber}} to number ",

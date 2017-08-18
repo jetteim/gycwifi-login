@@ -5,7 +5,7 @@ app.component('topbar', {
   templateUrl: "templates/topbar.html",
   controller: function($http, $scope, pluginsService, $rootScope, apiService, reportService, $timeout, langService) {
     $scope.templatePath = '/templates/' + $rootScope.template + '/topbar.html';
-    $scope.lang = $rootScope.lang
+    $scope.lang = $rootScope.lang || session.lang || 'ru'
     $scope.session = this.session
     $scope.style = $rootScope.style
 
@@ -29,7 +29,6 @@ app.component('topbar', {
 
     this.$onInit = function() {
       $timeout(this.init(), 0)
-      langService.setLang($scope.lang)
     }
 
   }
