@@ -1,69 +1,12 @@
-<nav id="sidebar">
-  <div id="sidebar-scroll">
-    <!-- Sidebar Content -->
-    <!-- Adding .sidebar-mini-hide to an element will hide it when the sidebar is in mini mode -->
-    <div class="sidebar-content" ng-click="$ctrl.closeSideBar()">
-      <!-- Side Header -->
-      <!-- Side Content -->
-      <div class="side-header side-content">
-        <button class="btn btn-link text-gray pull-right hidden-md hidden-lg" type="button" data-toggle="layout" data-action="sidebar_close" ng-click="$ctrl.closeSideBar()">
-          <i class="fa fa-times">
-          </i>
-        </button>
-        <!-- <a class="h5 text-white" href="{{ style.url || 'https://gycwifi.com' }}">
-           {{ style.title }}
-        </a> -->
-      </div>
-      <div class="side-content side-content-full">
-        <ul class="nav-main" data-js-main-nav>
-          <li ng-repeat="menu_item in style.login_menu_items">
-            <a href="{{ menu_item.url || style.url || 'https://gycwifi.com' }}"><span class="sidebar-mini-hide">{{ (lang == 'ru') ? menu_item.title_ru : menu_item.title_en }}</span></a>
-          </li>
-        </ul>
-      </div>
-      <!-- END Side Content -->
-    </div>
-    <!-- Sidebar Content -->
-  </div>
-</nav>
-<header class="content-mini content-mini-full form-login_color" id="header-navbar" on-finish-render="$ctrl.initUI()">
-  <ul class="nav-header pull-left">
-    <li class="hidden-md hidden-lg">
-      <button class="btn btn-default" type="button" data-toggle="layout" data-action="sidebar_toggle" ng-click="$ctrl.toggleSideBar()">
-        <i class="fa fa-navicon"></i>
-      </button>
-    </li>
-  </ul>
-  <ul class="nav-header pull-right">
-    <li class="btn-group">
-      <button data-toggle="dropdown" type="button" class="btn btn-link text-gray dropdown-toggle">
-          <i class="fa fa-caret-down fa-caret-down_sidebar-lang"></i>
-          <img src="/images/{{lang}}.png" alt="English lang" class="lang-flag"/>
-        </button>
-      <ul class="dropdown-menu dropdown-menu_sidebar dropdown-menu-right font-s13 sidebar-mini-hide">
-        <li>
-          <a href="" ng-click="changeLang('ru')">
-              <i class="pull-right"><img src="/images/ru.png" alt="English lang" class="lang-flag lang-flag_small-drop"/></i>
-              <span class="font-w600">Русский</span>
-            </a>
-        </li>
-        <li>
-          <a href="" ng-click="changeLang('en')">
-              <i class="pull-right"><img src="/images/en.png" alt="English lang" class="lang-flag lang-flag_small-drop"/></i>
-              <span class="font-w600">English</span>
-            </a>
-        </li>
-      </ul>
-    </li>
-  </ul>
-  <h3 class="uv-form-title block-title">
-      {{ 'login-page.title' | translate: {title: style.title} }}
-  </h3>
-</header>
 <div id="main-container" class="row main-content-wrap">
   <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
     <!-- Login Block -->
     <div class="uv-form form-login block block-themed animated fadeIn">
+      <div class="block-header">
+        <h3 class="block-title">
+          {{ style.title }}
+        </h3>
+      </div>
       <div class="block-content block-content-full block-content-narrow">
         <!-- Login Title -->
         <div class="text-center">

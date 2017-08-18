@@ -1,0 +1,28 @@
+<nav id="sidebar">
+  <div id="sidebar-scroll">
+    <!-- Sidebar Content -->
+    <!-- Adding .sidebar-mini-hide to an element will hide it when the sidebar is in mini mode -->
+    <div class="sidebar-content" ng-click="$ctrl.closeSideBar()">
+      <!-- Side Header -->
+      <!-- Side Content -->
+      <div class="side-header side-content">
+        <button class="btn btn-link text-gray pull-right hidden-md hidden-lg" type="button" ng-click="$ctrl.closeSideBar()">
+          <i class="fa fa-times">
+          </i>
+        </button>
+        <!-- <a class="h5 text-white" href="{{ style.url || 'https://gycwifi.com' }}">
+           {{ style.title }}
+        </a> -->
+      </div>
+      <div class="side-content side-content-full">
+        <ul class="nav-main" data-js-main-nav>
+          <li ng-repeat="menu_item in style.login_menu_items">
+            <a href="{{ menu_item.url || style.url || 'https://gycwifi.com' }}"><span class="sidebar-mini-hide">{{ (lang == 'ru') ? menu_item.title_ru : menu_item.title_en }}</span></a>
+          </li>
+        </ul>
+      </div>
+      <!-- END Side Content -->
+    </div>
+    <!-- Sidebar Content -->
+  </div>
+</nav>
