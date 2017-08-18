@@ -8,11 +8,16 @@ app.component('banner', {
     var self = this;
     apiService.getSessionTargeting(this.session, 'get').then(function(data) {
       self.banner = data;
-      this.callBackForSmaato = function(status) {
-        reportService.sendstring(`SomaJS.loadAd() result: ${status}`)
-      };
-      $timeout(SomaJS.loadAd(data, this.callBackForSmaato), 1);
+      $timeout(self.load_ad, 500);
     });
+
+    this.callBackForSmaato = function(status) {
+      reportService.sendstring(`SomaJS.loadAd() result: ${status}`)
+    };
+
+    this.load_ad = function() {
+      SomaJS.loadAd(data, this.callBackForSmaato)
+    }
 
   }
 });
