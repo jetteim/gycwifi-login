@@ -20,7 +20,7 @@ html(lang="en", ng-app="app")
     // Main template styles
     link(ng-if='template', rel="stylesheet", ng-href='/templates/{{template}}/css/template.css')
   body
-    section.sidebar-l.sidebar-o.side-scroll.header-navbar-fixed.app(ui-view='', ng-init = "session = '#{session}'")
+    section#page-container.sidebar-l.sidebar-o.side-scroll.header-navbar-fixed.app(ui-view='', ng-init = "session = '#{session}'")
     script(src="/vendors/jquery.min.js")
     script(src="./vendors/baseUi.js")
     script(src='./vendors/jquery.slimscroll.min.js')
