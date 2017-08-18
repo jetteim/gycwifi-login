@@ -7,9 +7,9 @@ app.component('mainView', {
     // this.pluginsService = pluginsService;
     // var self = this;
 
-    $scope.$onInit = function() {
-      $timeout(self.pluginsService.initUi, 0);
-    }
+    // $scope.$onInit = function() {
+    //   $timeout(self.pluginsService.initUi, 0);
+    // }
 
     $scope.closeSideBar = function() {
       pluginsService.uiAction('sidebar_close')
@@ -41,6 +41,7 @@ app.component('mainView', {
         $scope.templatePath = '/templates/' + template + '/main-view.html';
         $scope.mediaPath = '/templates/' + template + '/images';
         reportService.sendstring('template paths set');
+        $timeout(self.pluginsService.initUi, 0);
       }
 
       var defaultTemplate = 'default';
