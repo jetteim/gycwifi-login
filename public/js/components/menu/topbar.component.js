@@ -29,6 +29,7 @@ app.component('topbar', {
 
     this.$onInit = function() {
       $timeout(this.init(), 0)
+      langService.setLang($scope.lang)
     }
 
   }
