@@ -3,7 +3,7 @@ app.component('topbar', {
     session: '<'
   },
   templateUrl: "templates/topbar.html",
-  controller: function($http, $scope, pluginsService, $rootScope, apiService, reportService, $timeout) {
+  controller: function($http, $scope, pluginsService, $rootScope, apiService, reportService, $timeout, langService) {
     $scope.templatePath = '/templates/' + $rootScope.template + '/topbar.html';
     $scope.lang = $rootScope.lang
     $scope.session = this.session
