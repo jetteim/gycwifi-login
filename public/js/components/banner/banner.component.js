@@ -16,7 +16,7 @@ app.component('banner', {
     };
 
     this.load_ad = function() {
-      SomaJS.loadAd(data, this.callBackForSmaato)
+      SomaJS.loadAd(this.banner, this.callBackForSmaato)
     }
 
   }
