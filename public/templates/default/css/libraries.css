@@ -11521,7 +11521,7 @@ div.tagsinput span.tag a:hover {
 }
 
 .form-login_color {
-    background-color: rgba(91,143,209,.4);
+    background-color: rgba(91,143,209,.4) !important;
 }
 
 .img-responsive {
