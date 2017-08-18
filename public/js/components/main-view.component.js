@@ -7,14 +7,16 @@ app.component('mainView', {
     // this.pluginsService = pluginsService;
     // var self = this;
 
-    // $scope.$onInit = function() {
-    //   $timeout(self.pluginsService.initUi, 0);
-    // }
+    this.initUI = function() {
+      $timeout(self.pluginsService.initUi(), 0);
+    }
 
-    $timeout(pluginsService.initUi());
-
-    $scope.closeSideBar = function() {
+    this.closeSideBar = function() {
       pluginsService.uiAction('sidebar_close')
+    }
+
+    this.toggleSideBar = function() {
+      pluginsService.uiAction('sidebar_toggle')
     }
 
     reportService.sendstring('main view component loaded')
