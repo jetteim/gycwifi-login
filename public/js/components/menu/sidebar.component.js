@@ -1,13 +1,12 @@
 app.component('sidebar', {
   bindings: {
-    session: '<'
+    style: '<'
   },
   templateUrl: "templates/sidebar.html",
   controller: function($http, $scope, $rootScope, pluginsService) {
     $scope.templatePath = '/templates/' + $rootScope.template + '/sidebar.html';
-    $scope.session = this.session
+    $scope.style = this.style
     $scope.lang = $rootScope.lang
-    $scope.style = $rootScope.style
 
     this.closeSideBar = function() {
       pluginsService.uiAction('sidebar_close')
