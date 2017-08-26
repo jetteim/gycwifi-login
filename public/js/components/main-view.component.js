@@ -10,7 +10,7 @@ app.component('mainView', {
     reportService.sendstring('main view component loaded')
     $rootScope.renderWorks = false
     try {
-      $scope.lang = 'ru';
+      $scope.lang = langService.getLang() || 'ru';
       $scope.session = $rootScope.session;
       config.apiUrl = $scope.session.apiUrl ? $scope.session.apiUrl : config.apiUrl;
       config.halUrl = $scope.session.halUrl ? $scope.session.halUrl : config.halUrl;
