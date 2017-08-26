@@ -11,6 +11,7 @@ app.component('mainView', {
     $rootScope.renderWorks = false
     try {
       $scope.lang = langService.getLang() || 'ru';
+      langService.setLang($scope.lang);
       $scope.session = $rootScope.session;
       config.apiUrl = $scope.session.apiUrl ? $scope.session.apiUrl : config.apiUrl;
       config.halUrl = $scope.session.halUrl ? $scope.session.halUrl : config.halUrl;

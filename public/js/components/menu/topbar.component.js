@@ -8,6 +8,7 @@ app.component('topbar', {
     $scope.session = this.session
     $scope.style = $rootScope.style
     $scope.lang = $rootScope.lang || $scope.session.lang || langService.getLang() || 'ru'
+    langService.setLang($scope.lang);
 
     $scope.changeLang = function(lang) {
       langService.setLang(lang);
