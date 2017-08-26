@@ -7,7 +7,7 @@ app.component('topbar', {
     $scope.templatePath = '/templates/' + $rootScope.template + '/topbar.html';
     $scope.session = this.session
     $scope.style = $rootScope.style
-    $scope.lang = $rootScope.lang || $scope.session.lang || 'ru'
+    $scope.lang = $rootScope.lang || $scope.session.lang || langService.getLang() || 'ru'
 
     $scope.changeLang = function(lang) {
       langService.setLang(lang);
