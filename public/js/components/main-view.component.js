@@ -52,7 +52,6 @@ app.component('mainView', {
             )
           }
           setAppTemplate(styles.template || defaultTemplate);
-          setPrimaryColor(styles.bg_color || )
         })
         .catch(function(e) {
           setAppTemplate(styles.template || defaultTemplate);
