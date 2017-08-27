@@ -35,8 +35,12 @@
     z-index: -1;
 }
 
+#location-logo {
+    overflow: hidden;
+}
+
 .container_content {
-    max-width: 330px;
+    max-width: 320px;
 }
 
 .btn_lite {
