@@ -6,8 +6,20 @@ app.component('topbar', {
   controller: function($http, $scope, pluginsService, $rootScope, apiService, reportService, $timeout, langService, stylesService) {
     $scope.templatePath = '/templates/' + $rootScope.template + '/topbar.html';
     $scope.session = this.session
-    $scope.style = $rootScope.style
-    $scope.customCSS = stylesService.buildClasses($scope.style);
+    apiService.hal_availability_check().then(function(data) {
+      $scope.halMethod = data && data.method ? data.method : 'get'
+    });
+    apiService.api_availability_check().then(function(data) {
+      $scope.apiMethod = data && data.method ? data.method : 'get'
+    });
+    $scope.allowedRequest = function() {
+      return ($scope.halMethod == 'post' && $scope.apiMethod == 'post') ? 'post' : 'get'
+    };
+    apiService.getSessionStyle($scope.session, $scope.allowedRequest()).then(function(data) {
+      $scope.style = data;
+      $scope.customCSS = stylesService.buildClasses(data);
+    });
+
     $scope.lang = $rootScope.lang || $scope.session.lang || langService.getLang() || 'ru'
     langService.setLang($scope.lang);
 
