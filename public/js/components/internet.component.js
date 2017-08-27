@@ -1,7 +1,7 @@
 app.component('internet', {
   bindings: {},
   templateUrl: "templates/internet.html",
-  controller: function($http, apiService, profileService, $window, $scope, $stateParams, $rootScope, reportService) {
+  controller: function($http, apiService, profileService, $window, $scope, $stateParams, $rootScope, reportService, stylesService) {
     reportService.sendstring('internet component loaded');
 
     $scope.templatePath = '/templates/' + $rootScope.template + '/internet.html';
@@ -33,6 +33,7 @@ app.component('internet', {
 
     apiService.getSessionStyle($scope.session, $scope.allowedRequest()).then(function(data) {
       $scope.style = data;
+      $scope.customCSS = stylesService.buildClasses(data);
     });
 
     this.goToInternet = function() {

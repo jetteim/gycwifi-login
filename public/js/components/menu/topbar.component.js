@@ -3,10 +3,11 @@ app.component('topbar', {
     session: '<'
   },
   templateUrl: "templates/topbar.html",
-  controller: function($http, $scope, pluginsService, $rootScope, apiService, reportService, $timeout, langService) {
+  controller: function($http, $scope, pluginsService, $rootScope, apiService, reportService, $timeout, langService, stylesService) {
     $scope.templatePath = '/templates/' + $rootScope.template + '/topbar.html';
     $scope.session = this.session
     $scope.style = $rootScope.style
+    $scope.customCSS = stylesService.buildClasses(styles);
     $scope.lang = $rootScope.lang || $scope.session.lang || langService.getLang() || 'ru'
     langService.setLang($scope.lang);
 

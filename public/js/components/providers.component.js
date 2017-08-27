@@ -1,7 +1,7 @@
 app.component('providers', {
   bindings: {},
   templateUrl: "templates/providers.html",
-  controller: function($scope, $auth, $state, apiService, $stateParams, $window, profileService, reportService, $rootScope) {
+  controller: function($scope, $auth, $state, apiService, $stateParams, $window, profileService, reportService, $rootScope, stylesService) {
     reportService.sendstring('providers component loaded');
     $scope.session = $stateParams.session;
     config.apiUrl = $scope.session.apiUrl ? $scope.session.apiUrl : config.apiUrl;
@@ -106,6 +106,7 @@ app.component('providers', {
 
       apiService.getSessionStyle($scope.session, $scope.allowedRequest()).then(function(data) {
         $scope.style = data;
+        $scope.customCSS = stylesService.buildClasses(data);
         $scope.style.vouchers = data.vouchers
       })
 

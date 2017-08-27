@@ -1,7 +1,7 @@
 app.component('authpending', {
   bindings: {},
   templateUrl: "templates/authpending.html",
-  controller: function($scope, $rootScope, $state, $stateParams, reportService, apiService) {
+  controller: function($scope, $rootScope, $state, $stateParams, reportService, apiService, stylesService) {
     reportService.sendstring('authpending component loaded');
     $scope.templatePath = '/templates/' + $rootScope.template + '/authpending.html';
     $scope.session = $stateParams.session;
@@ -24,6 +24,7 @@ app.component('authpending', {
     apiService.getSessionStyle($scope.session, $scope.allowedRequest())
       .then(function(data) {
         $scope.style = data;
+        $scope.customCSS = stylesService.buildClasses(data);
         performCheck();
       });
 

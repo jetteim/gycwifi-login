@@ -17,7 +17,7 @@
       <div class="side-content side-content-full">
         <ul class="nav-main">
           <li ng-repeat="menu_item in style.login_menu_items">
-            <a href="{{ menu_item.url || style.redirect_url || 'https://gycwifi.com' }}"><span class="sidebar-mini-hide">{{ (lang == 'en') ? menu_item.title_en : menu_item.title_ru }}</span></a>
+            <a ng-class="customCSS.linkColor" href="{{ menu_item.url || style.redirect_url || 'https://gycwifi.com' }}"><span class="sidebar-mini-hide">{{ (lang == 'en') ? menu_item.title_en : menu_item.title_ru }}</span></a>
           </li>
         </ul>
       </div>

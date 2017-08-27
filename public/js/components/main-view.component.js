@@ -1,7 +1,7 @@
 app.component('mainView', {
   bindings: {},
   templateUrl: "templates/main-view.html",
-  controller: function($scope, $http, profileService, $element, $state, reportService, $stateParams, apiService, langService, $rootScope, pluginsService) {
+  controller: function($scope, $http, profileService, $element, $state, reportService, $stateParams, apiService, langService, $rootScope, pluginsService, stylesService) {
     // в index.jade ng-init = "session = '#{session}'", а в index.js в методе контроллера sessionCtrl отдали сессию в $rootScope.session
     // this.$timeout = $timeout;
     // this.pluginsService = pluginsService;
@@ -44,6 +44,7 @@ app.component('mainView', {
         .then(function(styles) {
           reportService.sendstring('applying session style');
           $scope.style = styles;
+          $scope.customCSS = stylesService.buildClasses(styles);
           if (styles && styles.background) {
             $element.css(
               'background-image',
