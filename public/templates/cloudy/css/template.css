@@ -39,8 +39,12 @@
     overflow: hidden;
 }
 
+#img-logo {
+  width: 100%
+}
+
 .container_content {
-    max-width: 320px;
+    max-width: calc(100% - 30px);
 }
 
 .btn_lite {

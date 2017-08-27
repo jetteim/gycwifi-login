@@ -48,8 +48,13 @@
   width: 100%
 }
 
+#location-logo {
+    overflow: hidden;
+}
+
+
 .container_content {
-    max-width: 330px;
+  max-width: calc(100% - 30px);
 }
 
 .btn_lite {
