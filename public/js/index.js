@@ -87,20 +87,15 @@ app.config(function($stateProvider, $urlRouterProvider, $translateProvider, $aut
 
   // Twitter (Work in progress)
   $authProvider.twitter({
-    url: config.apiUrl + '/auth/twitter',
-    authorizationEndpoint: 'https://api.twitter.com/oauth/authenticate',
+    url: config.apiUrl + '/auth/twitter?target=client',
     redirectUri: window.location.origin,
-    oauthType: '1.0',
-    popupOptions: {
-      width: 495,
-      height: 645
-    }
+    clientId: '745965151480913920'
   });
 
   // VK
   $authProvider.oauth2({
     name: 'vk',
-    url: config.apiUrl + '/auth/vk',
+    url: config.apiUrl + '/auth/vk?target=client',
     clientId: '5535231',
     redirectUri: window.location.origin || window.location.protocol + '//' + window.location.host,
     authorizationEndpoint: 'https://oauth.vk.com/authorize',
@@ -117,7 +112,7 @@ app.config(function($stateProvider, $urlRouterProvider, $translateProvider, $aut
 
   $authProvider.facebook({
     name: 'facebook',
-    url: config.apiUrl + '/auth/facebook',
+    url: config.apiUrl + '/auth/facebook?target=client',
     clientId: '1744031425861866',
     redirectUri: window.location.origin + '/',
     authorizationEndpoint: 'https://www.facebook.com/v2.8/dialog/oauth',
@@ -134,14 +129,14 @@ app.config(function($stateProvider, $urlRouterProvider, $translateProvider, $aut
 
   // Instagram
   $authProvider.instagram({
-    url: config.apiUrl + '/auth/instagram',
+    url: config.apiUrl + '/auth/instagram?target=client',
     clientId: 'aa1fba4378b24fae8a3c6ae777e59a0f',
     redirectUri: window.location.origin || window.location.protocol + '//' + window.location.host
   });
 
   // Google
   $authProvider.google({
-    url: config.apiUrl + '/auth/google_oauth2',
+    url: config.apiUrl + '/auth/google_oauth2?target=client',
     redirectUri: window.location.origin || window.location.protocol + '//' + window.location.host,
     requiredUrlParams: ['scope'],
     optionalUrlParams: ['display'],
