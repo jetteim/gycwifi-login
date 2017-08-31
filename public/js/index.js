@@ -10,56 +10,56 @@ app.config(function($stateProvider, $urlRouterProvider, $translateProvider, $aut
 
   $stateProvider
 
-    // Abstract main view
+  // Abstract main view
     .state('main', {
-      url: "",
-      template: '<main-view class="main-view"></main-view>',
-      controller: 'sessionCtrl'
-    })
+    url: "",
+    template: '<main-view class="main-view"></main-view>',
+    controller: 'sessionCtrl'
+  })
 
-    // First step - auth
-    .state('main.providers', {
-      url: "/providers",
-      template: '<providers></providers>',
-      params: {
-        session: null
-      }
-    })
+  // First step - auth
+  .state('main.providers', {
+    url: "/providers",
+    template: '<providers></providers>',
+    params: {
+      session: null
+    }
+  })
 
-    // Second step - phone number
-    .state('main.phone', {
-      url: "/phone",
-      template: '<phone></phone>',
-      params: {
-        session: null
-      }
-    })
+  // Second step - phone number
+  .state('main.phone', {
+    url: "/phone",
+    template: '<phone></phone>',
+    params: {
+      session: null
+    }
+  })
 
-    .state('main.authpending', {
-      url: "/authpending",
-      template: '<authpending></authpending>',
-      params: {
-        session: null
-      }
-    })
+  .state('main.authpending', {
+    url: "/authpending",
+    template: '<authpending></authpending>',
+    params: {
+      session: null
+    }
+  })
 
-    // Third step - sms input
-    .state('main.sms', {
-      url: "/sms",
-      template: '<sms></sms>',
-      params: {
-        session: null
-      }
-    })
+  // Third step - sms input
+  .state('main.sms', {
+    url: "/sms",
+    template: '<sms></sms>',
+    params: {
+      session: null
+    }
+  })
 
-    // Fourth step - inter on internet
-    .state('main.internet', {
-      url: "/internet",
-      template: '<internet></internet>',
-      params: {
-        session: null
-      }
-    });
+  // Fourth step - inter on internet
+  .state('main.internet', {
+    url: "/internet",
+    template: '<internet></internet>',
+    params: {
+      session: null
+    }
+  });
 
   // Providers
   $authProvider.httpInterceptor = function() {
@@ -87,7 +87,7 @@ app.config(function($stateProvider, $urlRouterProvider, $translateProvider, $aut
 
   // Twitter (Work in progress)
   $authProvider.twitter({
-    url: config.apiUrl + '/auth/twitter?target=client',
+    url: window.location.origin + '/auth/twitter?target=client',
     redirectUri: window.location.origin,
     clientId: '745965151480913920'
   });
