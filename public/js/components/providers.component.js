@@ -33,6 +33,7 @@ app.component('providers', {
           case 'google':
           case 'vk':
           case 'facebook':
+          case 'twitter':
           case 'odnoklassniki':
             this.bySocial(provider, params);
             break;
