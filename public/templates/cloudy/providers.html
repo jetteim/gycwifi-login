@@ -10,31 +10,37 @@
     </button>
   </div>
 
-  <button ng-if="style.social_networks.instagram" class="btn btn_lite btn-block"  ng-click="authenticate('instagram')" type="button">
+  <button ng-if="$style.social_networks.twitter" ng-click="$ctrl.authenticate('twitter')" class="btn btn_lite btn-block" type="button">
+    <i class="fa fa-share-alt pull-right"></i>
+    <i class="fa fa-twitter pull-left"></i>
+    {{ "login-page.twitter-button" | translate }}
+  </button>
+
+  <button ng-if="style.social_networks.instagram" class="btn btn_lite btn-block" ng-click="authenticate('instagram')" type="button">
     <i class="fa fa-share-alt pull-right"></i>
     <i class="fa fa-instagram pull-left"></i>
     {{ "login-page.instagram-button" | translate }}
   </button>
 
-  <button ng-if="style.social_networks.google" class="btn btn_lite btn-block"  ng-click="authenticate('google')" type="button">
+  <button ng-if="style.social_networks.google" class="btn btn_lite btn-block" ng-click="authenticate('google')" type="button">
     <i class="fa fa-share-alt pull-right"></i>
     <i class="fa fa-google pull-left"></i>
     {{ "login-page.google-button" | translate }}
   </button>
 
-  <button ng-if="style.social_networks.vk" class="btn btn_lite btn-block"  ng-click="authenticate('vk')" type="button">
+  <button ng-if="style.social_networks.vk" class="btn btn_lite btn-block" ng-click="authenticate('vk')" type="button">
     <i class="fa fa-share-alt pull-right"></i>
     <i class="fa fa-vk pull-left"></i>
     {{ "login-page.vk-button" | translate }}
   </button>
 
-  <button ng-if="style.social_networks.facebook" class="btn btn_lite btn-block"  ng-click="authenticate('facebook')" type="button">
+  <button ng-if="style.social_networks.facebook" class="btn btn_lite btn-block" ng-click="authenticate('facebook')" type="button">
     <i class="fa fa-share-alt pull-right"></i>
     <i class="fa fa-facebook pull-left"></i>
     {{ "login-page.facebook-button" | translate }}
   </button>
 
-  <button ng-if="style.social_networks.without" class="btn btn_lite btn-block"  ng-click="authenticate('without')" type="button">
+  <button ng-if="style.social_networks.without" class="btn btn_lite btn-block" ng-click="authenticate('without')" type="button">
     <i class="fa fa-key pull-right"></i>
     <i class="fa fa-key pull-left"></i>
     {{ "login-page.without" | translate }}
