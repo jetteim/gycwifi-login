@@ -87,8 +87,8 @@ app.config(function($stateProvider, $urlRouterProvider, $translateProvider, $aut
 
   // Twitter (Work in progress)
   $authProvider.twitter({
-    url: config.apiUrl + '/auth/twitter?target=client',
-    redirectUri: window.location.origin,
+    url: window.location.origin + '/auth/twitter?target=client',
+    redirectUri: window.location.origin + '/auth/twitter?target=client',
     clientId: '745965151480913920'
   });
 
