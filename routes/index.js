@@ -22,6 +22,10 @@ module.exports = function(app, config, querystring) {
     .post(apiCtrl.connecting)
     .get(apiCtrl.connecting);
 
+  app.route('/auth/twitter')
+    .post(apiCtrl.twitter)
+    .get(apiCtrl.twitter);
+
   app.get('/test', testCtrl.index);
 
   app.get('/get_api_url', (request, response) => {

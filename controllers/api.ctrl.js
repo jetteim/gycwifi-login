@@ -1,6 +1,24 @@
 'use strict';
 module.exports = (httpRequest, querystring, config, stringify) => {
   return {
+
+    twitter: (request, response, next) => {
+      let authData = {}
+      request.method === 'POST' ? authData = request.body : authData = request.query;
+      const options = {
+        uri: config.get('apiUrl') + '/auth/twitter',
+        method: 'POST',
+        json: authData
+      };
+      httpRequest(options, function(error, res, body) {
+        if (!error && res.statusCode == 200) {
+          response.send(body)
+        } else {
+          response.send(authData)
+        }
+      });
+    },
+
     receive: (request, response, next) => {
       const appleCNASignature = 'OS X '
       const appleCNAreply =
