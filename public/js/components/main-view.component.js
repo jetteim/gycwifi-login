@@ -1,7 +1,8 @@
 app.component('mainView', {
   bindings: {},
   templateUrl: "templates/main-view.html",
-  controller: function($scope, $http, profileService, $element, $state, reportService, $stateParams, apiService, langService, $rootScope, pluginsService, stylesService) {
+  controller: function($scope, $http, profileService, $element, $state, reportService, $stateParams, apiService, langService, $rootScope, pluginsService,
+    stylesService) {
     // в index.jade ng-init = "session = '#{session}'", а в index.js в методе контроллера sessionCtrl отдали сессию в $rootScope.session
     // this.$timeout = $timeout;
     // this.pluginsService = pluginsService;
@@ -45,10 +46,11 @@ app.component('mainView', {
           reportService.sendstring('applying session style');
           $scope.style = styles;
           $scope.customCSS = stylesService.buildClasses(styles);
+          // `linear-gradient(${styles.color_theme.gradient_start}, ${styles.color_theme.gradient_end}), url(${styles.background})`
           if (styles && styles.background) {
             $element.css(
               'background-image',
-              `linear-gradient(${styles.color_theme.gradient_start}, ${styles.color_theme.gradient_end}), url(${styles.background})`
+              `linear-gradient(rgba(37, 40, 47, .6), rgba(37, 40, 47, 0.8)), url(styles.background)`
             )
           }
           setAppTemplate(styles.template || defaultTemplate);
