@@ -50,7 +50,7 @@ app.component('mainView', {
           if (styles && styles.background) {
             $element.css(
               'background-image',
-              `linear-gradient(rgba(37, 40, 47, .6), rgba(37, 40, 47, 0.8)), url(styles.background)`
+              `linear-gradient(rgba(37, 40, 47, .6), rgba(37, 40, 47, 0.8)), url(${styles.background})`
             )
           }
           setAppTemplate(styles.template || defaultTemplate);
